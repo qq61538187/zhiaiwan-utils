@@ -30,9 +30,12 @@ jobs:
       - name: Build
         run: pnpm run build:es
 
+      - name: Authenticate npm
+        run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Publish to npm from dist
         run: |
           cd dist
           npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
