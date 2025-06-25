@@ -28,6 +28,9 @@
       "style": {
         "noVar": "off",
         "useForOf": "off"
+      },
+      "correctness": {
+        "noInnerDeclarations": "off"
       }
     }
   },
