@@ -2,14 +2,14 @@ name: Unit Test(macOS)
 on:
   pull_request:
     branches: [main]
+
 jobs:
   ut-mac:
-    # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node-version: [18.x]
-        os: [macos-latest] # macos-latest
+        os: [macos-latest]  # macos-latest
 
     steps:
       - name: Checkout
@@ -21,6 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'  # 添加 pnpm 缓存
 
       - uses: pnpm/action-setup@v4
         with:
