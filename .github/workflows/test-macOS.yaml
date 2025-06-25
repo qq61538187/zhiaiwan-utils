@@ -1,27 +1,32 @@
-name: Unit Test(macOS)
+name: Unit Test (macOS)
+
 on:
   pull_request:
-    branches: [main]
+    branches: [main]  # Only triggers for PRs targeting 'main' branch
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   ut-mac:
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
         node-version: [18.x]
-        os: [macos-latest]  # macos-latest
+        os: [macos-latest]
 
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 25
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'  # 添加 pnpm 缓存
 
       - uses: pnpm/action-setup@v4
         with:
