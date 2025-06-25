@@ -5,6 +5,8 @@ const fs = require('node:fs');
 const config = require('./config');
 var UglifyJS = require('uglify-js');
 
+const astUtils = require('./utils/ast-utils');
+
 const requireRegex = /require\(\s*['"]([^'"]+)['"]\s*\)/;
 var buildMode = process.argv[2];
 if(buildMode){
@@ -117,11 +119,91 @@ function buildEs(srcFolderApi) {
   );
 }
 
+function buildCjs(srcFolderApi) {
+  // 添加分组js
+  var outputPath = path.resolve(__dirname, `../dist`);
+  Object.keys(config.category).forEach((category) => {
+    let categoryJsText = 'module.exports = {\n';
+       categoryJsText += config.category[category]
+      .map((fileName) => {
+        return `'${fileName}': require('./${fileName}.js'),`;
+      })
+      .join('\n');
+    categoryJsText += `\n};`;
+    fs.writeFileSync(
+      `${outputPath}/${category.toLowerCase()}.js`,
+      categoryJsText,
+    );
+  });
+  // 处理函数方法 生成 export default
+  fileUtils.copyFolderContents(path.resolve(__dirname, '../src'), outputPath, {
+    isCopy: false,
+    getFile: (lodashApiFile) => {
+      if (lodashApiFile.endsWith('.js')) {
+        // 如果是.js文件，则将其路径添加到jsFiles数组中
+        let newJsContent = '';
+        fileUtils.readFileSync(lodashApiFile, (line) => {
+          newJsContent += line + '\n';
+        });
+        const fileName = path.basename(lodashApiFile, '.js').replace(/^_/, '');
+        newJsContent += `module.exports =  ${fileName};`;
+        fs.writeFileSync(
+          path.resolve(outputPath, `${path.basename(lodashApiFile, '.js')}.js`),
+          newJsContent,
+          'utf-8',
+        );
+      }
+    },
+  });
+  let cjsDefaultBeforeContent = '';
+  let cjsDefaultAfterContent = '';
+  let cjsContent = '';
+  srcFolderApi.forEach((fileName) => {
+    cjsDefaultBeforeContent += astUtils.getAstFileContent(path.resolve(__dirname, `../src/${fileName}.js`)) + '\n';
+      let newFunctionName = fileName.replace(/^_/, '');
+      if(!fileName.startsWith('_')) {
+        cjsDefaultAfterContent += `${config.umdModuleName}.${newFunctionName} = ${newFunctionName};\n`;
+      }
+  })
+  cjsContent = config.cjsInitContent.replace(/<%insert-function-before%>/gm, cjsDefaultBeforeContent).replace(/<%insert-function-after%>/gm, cjsDefaultAfterContent)
+  let uglifyJSContent = UglifyJS.minify(cjsContent, {
+    'fromString': true,
+    'compress': {
+      'collapse_vars': true,
+      'negate_iife': false,
+      'pure_getters': true,
+      'unsafe': true,
+      'warnings': false
+    },
+    'output':{
+      'ascii_only': false,
+      'max_line_len': 500
+    }
+  });
+  fs.writeFileSync(
+    path.resolve(outputPath, `${config.umdModuleName}.js`),
+    cjsContent,
+    'utf-8',
+  );
+  if(uglifyJSContent.error){
+    console.log('压缩失败')
+  } else {
+    fs.writeFileSync(path.resolve(outputPath, `${config.umdModuleName}.min.js`), uglifyJSContent.code, 'utf-8')
+  }
+
+  fs.writeFileSync(
+    path.resolve(outputPath, 'package.json'),
+    JSON.stringify(config.cjsPkg, null, 2),
+    'utf-8',
+  );
+}
 function build() {
   fileUtils.createFolderAndClear(path.resolve(__dirname, '../dist'));
   const srcFolderApi = getSrcFolderApi();
   if(buildMode == 'es'){
     buildEs(srcFolderApi);
+  } else {
+    buildCjs(srcFolderApi);
   }
 }
 

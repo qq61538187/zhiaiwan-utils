@@ -1,18 +1,17 @@
 /**
- * Checks if `value` is the
- * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
- * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ * 检查 `value` 是否为 ECMAScript 语言类型中的 `Object` 类型。
+ * (包括：数组、函数、普通对象、正则表达式、`new Number(0)`、`new String('')` 等)
  *
  * @static
- * @memberOf _
- * @since 0.1.0
  * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @param {*} value 要检查的值
+ * @returns {boolean} 如果 `value` 是对象类型则返回 `true`，否则返回 `false`
  * @example
  *
  */
 function isObject(value) {
+    // 获取值的类型
     var type = typeof value;
+    // 检查值不为 null 且类型是 object 或 function
     return value != null && (type === 'object' || type === 'function');
 }

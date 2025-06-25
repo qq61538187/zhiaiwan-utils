@@ -28,11 +28,16 @@
     "qunitjs": "^2.4.1"
   },
   "dependencies": {
-    "@biomejs/biome":  "1.9.4",
+    "@biomejs/biome": "1.9.4",
     "@changesets/cli": "^2.29.5",
+    "acorn": "^8.15.0",
+    "acorn-walk": "^8.3.4",
+    "astravel": "^0.6.1",
+    "astring": "^1.9.0",
     "chalk": "4",
     "closure-compiler": "0.2.12",
     "download-git-repo": "^3.0.2",
+    "escodegen": "^2.1.0",
     "glob": "7.1.1",
     "handlebars": "^4.7.7",
     "log-symbols": "4",

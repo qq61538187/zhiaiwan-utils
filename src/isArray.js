@@ -1,12 +1,11 @@
 /**
- * Checks if `value` is classified as an `Array` object.
+ * 检查 `value` 是否被分类为一个 `Array` 对象。
  *
  * @static
- * @memberOf _
- * @since 0.1.0
  * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+ * @param {*} value 要检查的值。
+ * @returns {boolean} 如果 `value` 是数组则返回 `true`，否则返回 `false`。
  * @example
+ *
  */
 var isArray = Array.isArray;

@@ -1,15 +1,13 @@
+var baseGetType = require('./_baseGetType.js');
 /**
- * Checks if `value` is `null`.
- *
+ * 检查 `value` 是否为 `null`。
  * @static
- * @memberOf _
- * @since 0.1.0
  * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is `null`, else `false`.
+ * @param {*} value 要检查的值。
+ * @returns {boolean} 如果 `value` 是 `null` 则返回 `true`，否则返回 `false`。
  * @example
  *
  */
 function isNull(value) {
-    return value === null;
+    return baseGetType(value) === 'null';
 }
