@@ -6,7 +6,7 @@
   "sideEffects": false,
   "engineStrict": true,
   "files": [
-    "dist"
+    "dist/*"
   ],
   "scripts": {
     "build": "node build/build.js",
