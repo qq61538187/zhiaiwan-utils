@@ -27,7 +27,8 @@
       },
       "style": {
         "noVar": "off",
-        "useForOf": "off"
+        "useForOf": "off",
+        "useTemplate": "off"
       },
       "correctness": {
         "noInnerDeclarations": "off"

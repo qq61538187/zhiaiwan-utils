@@ -9,5 +9,5 @@ var baseGetType = require('./_baseGetType.js');
  *
  */
 function isNull(value) {
-    return baseGetType(value) === 'null';
+  return baseGetType(value) === 'null';
 }
