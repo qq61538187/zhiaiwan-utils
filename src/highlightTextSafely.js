@@ -5,7 +5,10 @@
  * @param {boolean} [isDisabledSearch=false] - 是否禁用搜索高亮
  * @returns {string} 处理后的安全HTML字符串
  */
-function highlightTextSafely(content, rawSearch, isDisabledSearch = false) {
+function highlightTextSafely(content, rawSearch, isDisabledSearch) {
+  if (isDisabledSearch === void 0) {
+    isDisabledSearch = false;
+  }
   // 处理未定义或null的情况
   var safeText = String(content || '')
     .replace(/&/g, '&amp;')

@@ -28,7 +28,8 @@
       "style": {
         "noVar": "off",
         "useForOf": "off",
-        "useTemplate": "off"
+        "useTemplate": "off",
+        "noParameterAssign": "off"
       },
       "correctness": {
         "noInnerDeclarations": "off"

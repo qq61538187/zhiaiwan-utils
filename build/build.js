@@ -166,6 +166,11 @@ function buildCjs(srcFolderApi) {
       }
   })
   cjsContent = config.cjsInitContent.replace(/<%insert-function-before%>/gm, cjsDefaultBeforeContent).replace(/<%insert-function-after%>/gm, cjsDefaultAfterContent)
+    fs.writeFileSync(
+    path.resolve(outputPath, `${config.umdModuleName}.js`),
+    cjsContent,
+    'utf-8',
+  );
   let uglifyJSContent = UglifyJS.minify(cjsContent, {
     'fromString': true,
     'compress': {
