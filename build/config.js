@@ -90,7 +90,7 @@ const cjsInitContent = `
 module.exports = {
   VERSION,
   category: new Hash({
-    lang: ['isObject', 'isNull', 'isArray', 'isObjectLike'],
+    verification: ['isObject', 'isNull', 'isArray', 'isObjectLike','isHexColor','isDarkColor'],
     string: ['highlightTextSafely'],
     random: ['randomIPs','randomPasswords']
   }),
