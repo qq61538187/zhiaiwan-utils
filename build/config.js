@@ -92,7 +92,8 @@ module.exports = {
   category: new Hash({
     verification: ['isObject', 'isNull', 'isArray', 'isObjectLike','isHexColor','isDarkColor'],
     string: ['highlightTextSafely'],
-    random: ['randomIPs','randomPasswords']
+    random: ['randomIPs','randomPasswords'],
+    color: ['colorBlend','colorGenerateGradientSeries','colorHexToRgb']
   }),
   esInitContent,
   esInitContentCategoryBeforeFlag,
