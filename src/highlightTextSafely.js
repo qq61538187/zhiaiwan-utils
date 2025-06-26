@@ -1,5 +1,7 @@
 /**
  * 安全高亮文本中的搜索词
+ * @since 1.0.2
+ * @category String
  * @param {string} content - 原始内容
  * @param {string} rawSearch - 搜索词
  * @param {boolean} [isDisabledSearch=false] - 是否禁用搜索高亮

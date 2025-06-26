@@ -1,6 +1,7 @@
 /**
  * 生成指定类型的随机IP地址列表
- *
+ * @since 1.0.2
+ * @category Random
  * @param {string} type - IP地址类型：'A'、'B'、'C' 或 'D'
  * @param {number} count - 要生成的IP地址数量
  * @returns {Array} 包含生成的随机IP地址字符串数组；如果类型无效，则返回 ['Invalid IP class type']

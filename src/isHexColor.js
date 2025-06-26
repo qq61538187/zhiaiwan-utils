@@ -1,6 +1,7 @@
 /**
  * 判断颜色字符串是否为合法的十六进制颜色格式
- *
+ * @since 1.0.2
+ * @category verification
  * @param {string} color - 要检查的颜色字符串，例如 "#fff"、"#ffffff"
  * @returns {boolean} 如果是合法的十六进制颜色格式，返回 true；否则返回 false
  */

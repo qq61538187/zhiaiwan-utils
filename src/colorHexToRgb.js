@@ -1,5 +1,7 @@
 /**
  * 将十六进制颜色值转换为RGB格式
+ * @since 1.0.2
+ * @category Color
  * @param {string} hex - 十六进制颜色值（如 "#FF0000" 或 "#F00"）
  * @param {Object} [options] - 配置选项
  * @param {boolean} [options.isObject] - 是否返回RGB对象（默认返回RGB字符串）

@@ -1,6 +1,7 @@
 /**
  * 生成随机密码列表
- *
+ * @since 1.0.2
+ * @category Random
  * @param {Object} options - 配置选项
  * @param {boolean} [options.includeNumbers=true] - 是否包含数字（0-9）
  * @param {boolean} [options.includeLowercase=true] - 是否包含小写字母（a-z）

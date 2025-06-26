@@ -1,7 +1,8 @@
 var isHexColor = require('./isHexColor.js');
 /**
  * 判断一个十六进制颜色是否为暗色
- *
+ * @since 1.0.2
+ * @category verification
  * @param {string} hexColor - 十六进制颜色字符串，例如 "#000000"、"#fff"、"#1a2b3c"
  * @returns {boolean} 如果颜色亮度较低（暗色），返回 true；否则返回 false
  */

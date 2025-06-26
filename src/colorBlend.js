@@ -1,6 +1,8 @@
 var colorHexToRgb = require('./colorHexToRgb.js');
 /**
  * 混合两种颜色并按指定比例生成新颜色
+ * @since 1.0.2
+ * @category Color
  * @param {string} primaryColorHex - 主色（十六进制格式，如 "#FF0000"）
  * @param {string} blendColorHex - 要混合的颜色（十六进制格式）
  * @param {number} [blendRatio=20] - 混合比例（0-100，默认20，表示主色占80%，混合色占20%）
