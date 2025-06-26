@@ -10,6 +10,6 @@
  *
  */
 function isObjectLike(value) {
-  // 检查值不为 null/undefined 且 typeof 结果为 "object"
-  return value != null && typeof value === 'object';
+    // 检查值不为 null/undefined 且 typeof 结果为 "object"
+    return value != null && typeof value === 'object';
 }

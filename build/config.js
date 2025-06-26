@@ -91,6 +91,8 @@ module.exports = {
   VERSION,
   category: new Hash({
     lang: ['isObject', 'isNull', 'isArray', 'isObjectLike'],
+    string: ['highlightTextSafely'],
+    random: ['randomIPs','randomPasswords']
   }),
   esInitContent,
   esInitContentCategoryBeforeFlag,

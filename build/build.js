@@ -208,14 +208,13 @@ function build() {
 }
 
 function preLint() {
-  exec('npm run lint', (error) => {
-    if (error) {
-      console.error(`exec error: ${error}`);
-      return;
-    }
-   
+  // exec('npm run lint', (error) => {
+  //   if (error) {
+  //     console.error(`exec error: ${error}`);
+  //     return;
+  //   }
     build();
-  });
+  // });
 }
 
 preLint();

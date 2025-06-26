@@ -10,8 +10,8 @@
  *
  */
 function isObject(value) {
-  // 获取值的类型
-  var type = typeof value;
-  // 检查值不为 null 且类型是 object 或 function
-  return value != null && (type === 'object' || type === 'function');
+    // 获取值的类型
+    var type = typeof value;
+    // 检查值不为 null 且类型是 object 或 function
+    return value != null && (type === 'object' || type === 'function');
 }

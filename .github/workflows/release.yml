@@ -36,6 +36,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to npm from dist
+        if: startsWith(github.event.head_commit.message, 'publish')
         run: |
           cd dist
           npm publish
