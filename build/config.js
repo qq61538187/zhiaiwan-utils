@@ -93,7 +93,8 @@ module.exports = {
     verification: ['isObject', 'isNull', 'isArray', 'isObjectLike','isHexColor','isDarkColor'],
     string: ['highlightTextSafely'],
     random: ['randomIPs','randomPasswords'],
-    color: ['colorBlend','colorGenerateGradientSeries','colorHexToRgb']
+    color: ['colorBlend','colorGenerateGradientSeries','colorHexToRgb'],
+    object: ['createDeepReactive']
   }),
   esInitContent,
   esInitContentCategoryBeforeFlag,

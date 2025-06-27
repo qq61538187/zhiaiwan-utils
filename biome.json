@@ -29,7 +29,12 @@
         "noVar": "off",
         "useForOf": "off",
         "useTemplate": "off",
-        "noParameterAssign": "off"
+        "noParameterAssign": "off",
+        "noArguments": "off"
+      },
+      "complexity": {
+        "useArrowFunction": "off",
+        "useOptionalChain": "off"
       },
       "correctness": {
         "noInnerDeclarations": "off"
