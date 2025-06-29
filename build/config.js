@@ -119,7 +119,7 @@ module.exports = {
   },
   cjsInitContent,
   cjsPkg: {
-    name: `${pkg.name}-es`,
+    name: `${pkg.name}`,
     version: VERSION,
     description: '智ai湾 前端常用工具库',
     keywords: 'zhiaiwan, 智ai湾, utils ',
