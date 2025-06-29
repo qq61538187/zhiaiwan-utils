@@ -100,7 +100,7 @@ module.exports = {
   esInitContentCategoryBeforeFlag,
   esInitContentCategoryAfterFlag,
   esPkg: {
-    name: 'zhiaiwan-utils-es',
+    name:  `${pkg.name}-es`,
     version: VERSION,
     description: '智ai湾 es版前端常用工具库',
     keywords: 'zhiaiwan, 智ai湾, utils, es ',
@@ -119,7 +119,7 @@ module.exports = {
   },
   cjsInitContent,
   cjsPkg: {
-    name: 'zhiaiwan-utils',
+    name: `${pkg.name}-es`,
     version: VERSION,
     description: '智ai湾 前端常用工具库',
     keywords: 'zhiaiwan, 智ai湾, utils ',

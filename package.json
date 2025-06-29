@@ -1,6 +1,6 @@
 {
-  "name": "zhiaiwan-utils",
-  "version": "1.0.2",
+  "name": "@zhiaiwan/utils",
+  "version": "1.0.0",
   "description": "智AI湾前端工具集",
   "keywords": "智AI湾, zhiaiwan, utils, 工具库, 工具包",
   "sideEffects": false,
