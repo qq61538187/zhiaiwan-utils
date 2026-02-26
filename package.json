@@ -1,0 +1,138 @@
+{
+	"name": "@zhiaiwan/utils",
+	"version": "0.1.0",
+	"description": "A pure function utility library for ZhiAiWan projects.",
+	"license": "MIT",
+	"type": "module",
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"main": "./dist/cjs/zhiaiwanUtils.js",
+	"types": "./dist/types/zhiaiwanUtils.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/types/zhiaiwanUtils.d.ts",
+			"import": "./dist/es/zhiaiwanUtils.js",
+			"default": "./dist/es/zhiaiwanUtils.js"
+		},
+		"./add": {
+			"types": "./dist/types/add.d.ts",
+			"import": "./dist/es/add.js",
+			"default": "./dist/es/add.js"
+		},
+		"./pick": {
+			"types": "./dist/types/pick.d.ts",
+			"import": "./dist/es/pick.js",
+			"default": "./dist/es/pick.js"
+		},
+		"./chunk": {
+			"types": "./dist/types/chunk.d.ts",
+			"import": "./dist/es/chunk.js",
+			"default": "./dist/es/chunk.js"
+		},
+		"./unique": {
+			"types": "./dist/types/unique.d.ts",
+			"import": "./dist/es/unique.js",
+			"default": "./dist/es/unique.js"
+		},
+		"./difference": {
+			"types": "./dist/types/difference.d.ts",
+			"import": "./dist/es/difference.js",
+			"default": "./dist/es/difference.js"
+		},
+		"./debounce": {
+			"types": "./dist/types/debounce.d.ts",
+			"import": "./dist/es/debounce.js",
+			"default": "./dist/es/debounce.js"
+		},
+		"./once": {
+			"types": "./dist/types/once.d.ts",
+			"import": "./dist/es/once.js",
+			"default": "./dist/es/once.js"
+		},
+		"./memoize": {
+			"types": "./dist/types/memoize.d.ts",
+			"import": "./dist/es/memoize.js",
+			"default": "./dist/es/memoize.js"
+		},
+		"./compose": {
+			"types": "./dist/types/compose.d.ts",
+			"import": "./dist/es/compose.js",
+			"default": "./dist/es/compose.js"
+		},
+		"./array": {
+			"types": "./dist/types/array.d.ts",
+			"import": "./dist/es/array.js",
+			"default": "./dist/es/array.js"
+		},
+		"./func": {
+			"types": "./dist/types/func.d.ts",
+			"import": "./dist/es/func.js",
+			"default": "./dist/es/func.js"
+		},
+		"./object": {
+			"types": "./dist/types/object.d.ts",
+			"import": "./dist/es/object.js",
+			"default": "./dist/es/object.js"
+		},
+		"./math": {
+			"types": "./dist/types/math.d.ts",
+			"import": "./dist/es/math.js",
+			"default": "./dist/es/math.js"
+		}
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"scripts": {
+		"clean": "rimraf dist .tmp-types",
+		"verify:methods": "node scripts/verify-methods.mjs",
+		"verify:exports": "node scripts/verify-exports.mjs",
+		"verify:artifacts": "node scripts/verify-artifacts.mjs",
+		"fix:exports": "node scripts/fix-exports.mjs",
+		"build:cjs": "node scripts/build-runtime.mjs",
+		"build:es": "tsc -p tsconfig.esm.json && node scripts/build-esm.mjs",
+		"build:umd": "node scripts/build-browser.mjs",
+		"build:types": "tsc -p tsconfig.types.json && node scripts/build-types.mjs",
+		"build": "pnpm run clean && pnpm run verify:methods && pnpm run verify:exports && pnpm run build:es && pnpm run build:cjs && pnpm run build:umd && pnpm run build:types",
+		"typecheck": "tsc --noEmit",
+		"verify:types": "tsc -p tsconfig.type-tests.json --noEmit",
+		"test:node:smoke": "node scripts/node-smoke.mjs",
+		"test": "vitest",
+		"test:run": "vitest run",
+		"lint": "biome lint ./src ./tests ./scripts",
+		"fix": "biome check --write ./src ./tests ./scripts",
+		"docs:dev": "vitepress dev docs",
+		"docs:build": "vitepress build docs",
+		"docs:preview": "vitepress preview docs",
+		"changeset:version": "changeset version",
+		"changeset:publish": "changeset publish",
+		"prepare": "husky",
+		"prepack": "pnpm run build && pnpm run verify:artifacts",
+		"prepublishOnly": "pnpm run prepack && pnpm run verify:types && pnpm run test:run && pnpm run test:node:smoke"
+	},
+	"lint-staged": {
+		"*.{ts,tsx,js,jsx,json,mjs,md}": [
+			"biome check --write --no-errors-on-unmatched"
+		]
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.4",
+		"@changesets/cli": "^2.29.8",
+		"@commitlint/cli": "^20.4.2",
+		"@commitlint/config-conventional": "^20.4.2",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-typescript": "^12.1.2",
+		"@types/node": "^25.3.1",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
+		"rimraf": "^6.1.1",
+		"rollup": "^4.50.1",
+		"terser": "^5.44.1",
+		"tslib": "^2.8.1",
+		"typescript": "^5.9.2",
+		"vitepress": "2.0.0-alpha.16",
+		"vitest": "^4.0.18"
+	}
+}

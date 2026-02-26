@@ -1,0 +1,5 @@
+{
+	"name": "zhiaiwan-utils",
+	"main": ["dist/umd/zhiaiwanUtils.js", "dist/umd/zhiaiwanUtils.min.js"],
+	"license": "MIT"
+}
