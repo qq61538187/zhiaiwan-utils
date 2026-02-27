@@ -66,7 +66,7 @@ const filtered = difference([1, 2, 3, 4] as const, [2, 4] as const)
 
 ## Function Composition Inference
 
-### `compose(...fns)` right-to-left type flow
+### `flowRight(...fns)` right-to-left type flow
 
 Infers the input type from the last function and the output type from the first function in the composed chain.
 
@@ -85,9 +85,9 @@ Infers the input type from the last function and the output type from the first 
 #### Example
 
 ```ts
-import { compose } from '@zhiaiwan/utils'
+import { flowRight } from '@zhiaiwan/utils'
 
-const pipeline = compose(
+const pipeline = flowRight(
   (value: { count: number }) => value.count,
   (value: string) => ({ count: Number(value) }),
   (value: boolean) => (value ? '1' : '0')

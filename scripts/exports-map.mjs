@@ -1,3 +1,8 @@
+/**
+ * Purpose：Generate the canonical expected `package.json.exports` object from method/group metadata.
+ * Used in：`scripts/verify-exports.mjs` during `pnpm run verify:exports` and full build validation.
+ * Why：A single source of truth for export subpaths prevents drift between actual package exports and code structure.
+ */
 import { ARTIFACT_BASENAME } from "./artifact-config.mjs";
 import { GROUP_EXPORTS, ROOT_METHODS } from "./method-groups.mjs";
 

@@ -1,109 +1,132 @@
 # zhiaiwan-utils
 
-A pure function library with cjs/es/types outputs.
+[![npm version](https://img.shields.io/npm/v/@zhiaiwan/utils)](https://www.npmjs.com/package/@zhiaiwan/utils)
+[![npm downloads](https://img.shields.io/npm/dm/@zhiaiwan/utils)](https://www.npmjs.com/package/@zhiaiwan/utils)
+[![CI](https://github.com/zhiaiwan/utils/actions/workflows/ci.yml/badge.svg)](https://github.com/zhiaiwan/utils/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## Install
+A pure function utility library with ESM/CJS/runtime/type outputs.
+
+## Installation
 
 ```bash
 pnpm add @zhiaiwan/utils
+# or
+npm i @zhiaiwan/utils
+# or
+yarn add @zhiaiwan/utils
 ```
 
-## Usage
+## Quick Start
 
 ```ts
+// Full entry (recommended for discoverability)
 import { add, pick, debounce } from '@zhiaiwan/utils'
 
 const sum = add(1, 2)
 const selected = pick({ id: 1, name: 'zw', active: true }, ['id', 'name'])
+
 const fn = debounce(() => console.log('run'), 100)
+fn()
 ```
 
-### Module Compatibility Policy
-
-- This package primarily targets **ESM + TypeScript** publishing.
-- ESM usage with `import` is recommended in modern projects.
-- A CommonJS build (`dist/cjs`) is provided for compatibility scenarios.
-
-### Import Patterns
-
 ```ts
-// Root named import
-import { add, chunk, compose } from '@zhiaiwan/utils'
-
-// Subpath default import
+// Per-method import
 import addDefault from '@zhiaiwan/utils/add'
 import chunkDefault from '@zhiaiwan/utils/chunk'
 
-// Grouped imports
+const sum = addDefault(1, 2)
+const grouped = chunkDefault([1, 2, 3, 4], 2)
+```
+
+```ts
+// Group import
 import { array, object, math } from '@zhiaiwan/utils'
 import func from '@zhiaiwan/utils/func'
 // or: import { func } from '@zhiaiwan/utils'
 
-const sum = addDefault(1, 2)
-const groups = array.chunk([1, 2, 3, 4], 2)
+const grouped = array.chunk([1, 2, 3, 4], 2)
 const runOnce = func.once((value: number) => value + 1)
 const picked = object.pick({ id: 1, name: 'zw' }, ['id'] as const)
 const added = math.add(1, 2)
 ```
 
-### Type Inference Examples
+Reference:
+- `docs/guide/getting-started.md`
+- `docs/api/index.md`
 
-```ts
-import { compose, memoize, pick } from '@zhiaiwan/utils'
+## Project Structure
 
-const selected = pick({ id: 1, name: 'zw', active: true }, ['id', 'name'] as const)
-// { id: number; name: string }
-
-const pipeline = compose(
-  (value: { count: number }) => value.count,
-  (value: string) => ({ count: Number(value) }),
-  (value: boolean) => (value ? '1' : '0')
-)
-// (value: boolean) => number
-
-const memoized = memoize(
-  (a: number, b: number) => a + b,
-  (a, b) => `${a}:${b}`
-)
-// memoized.cache: Map<string, number>
+```text
+src/            # public methods and grouped exports
+tests/          # runtime behavior tests
+type-tests/     # TypeScript inference and contract checks
+scripts/        # build, verify, and smoke scripts
+docs/           # VitePress docs (guide + api)
+dist/           # build outputs (generated)
+package.json    # scripts, exports, engines, release entry
+tsconfig*.json  # TypeScript settings for source/build/type-tests
+rollup.config.mjs # UMD/browser build configuration
+vitest.config.ts  # test runner configuration
+.changeset/     # versioning and release metadata
+.github/        # CI/release workflows and collaboration templates
 ```
 
-## Scripts
+## FAQ
 
-- `pnpm run typecheck`
-- `pnpm run build`
-- `pnpm run verify:types`
-- `pnpm run test:run`
+### Why is ESM recommended if CJS still exists?
 
-### Recommended Pre-publish Verification Order
+ESM is the primary target for modern TS/Node toolchains. CJS (`dist/cjs`) is kept for compatibility, and both paths are validated by `pnpm run test:node:smoke`.
+
+### Does this library have runtime configuration options?
+
+No. `@zhiaiwan/utils` focuses on pure utility methods and currently exposes no runtime config object.
+
+### What should I use: root import, grouped import, or subpath import?
+
+- Use root named imports for convenience.
+- Use grouped imports when you want category-level organization (`array`, `func`, `object`, `math`).
+- Use subpath imports when you need explicit path-level imports.
+
+### Why does `chunk` return `[]` for some inputs?
+
+`chunk` returns `[]` when the input is not an array or when `size` is non-finite/less than 1. Non-integer finite sizes are truncated before processing.
+
+### How do I troubleshoot type/runtime/export issues before publishing?
+
+Run this sequence:
 
 ```bash
+pnpm run lint
 pnpm run typecheck
-pnpm run build
 pnpm run verify:types
 pnpm run test:run
+pnpm run build
+pnpm run verify:artifacts
+pnpm run test:node:smoke
 pnpm pack --dry-run
 ```
 
-## Build outputs
+## Dev Commands
 
-- `dist/es/*.js` (function-level files)
-- `dist/es/zhiaiwanUtils.js`
-- `dist/es/zhiaiwanUtils.default.js`
-- `dist/cjs/*.js` (CommonJS function-level files)
-- `dist/cjs/zhiaiwanUtils.js`
-- `dist/cjs/array.js`
-- `dist/cjs/func.js`
-- `dist/cjs/object.js`
-- `dist/cjs/math.js`
-- `dist/umd/zhiaiwanUtils.js` (browser script entry)
-- `dist/umd/zhiaiwanUtils.min.js`
-- `dist/types/*.d.ts`
-- `dist/types/zhiaiwanUtils.d.ts`
+- `pnpm run lint`
+- `pnpm run typecheck`
+- `pnpm run verify:types`
+- `pnpm run test:run`
+- `pnpm run build`
+- `pnpm run verify:artifacts`
+- `pnpm run test:node:smoke`
+- `pnpm run docs:build`
 
-## Collaboration and Release
+## Tech Stack
 
-- Contribution guide: `CONTRIBUTING.md`
-- PR template: `.github/PULL_REQUEST_TEMPLATE.md`
-- Versioning and release (Changesets): `.changeset/README.md`
-- Chinese docs: `README.CN.md`
+- TypeScript
+- Vitest
+- Rollup
+- VitePress
+- Biome
+- Changesets
+
+## License
+
+MIT

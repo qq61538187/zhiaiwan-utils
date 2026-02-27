@@ -1,18 +1,20 @@
 /**
- * Returns the sum of two numbers.
+ * Adds two numbers.
+ *
+ * Non-numeric inputs are converted with `Number(...)` before calculation.
  *
  * @since +0.1.0
  * @category Math
- * @param {number} a The first addend.
- * @param {number} b The second addend.
- * @returns {number} Returns the arithmetic sum.
+ * @param {number} augend The first number to add.
+ * @param {number} addend The second number to add.
+ * @returns {number} Returns the sum.
  * @example
  *
- * add(1, 2)
- * // => 3
+ * add(4, 6)
+ * // => 10
  */
-export function add(a: number, b: number): number {
-  return a + b
+export function add(augend: number, addend: number): number {
+	return Number(augend) + Number(addend);
 }
 
-export default add
+export default add;

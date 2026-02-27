@@ -1,3 +1,8 @@
+/**
+ * Purpose：Run a minimal runtime smoke test against built CJS and ESM entry artifacts.
+ * Used in：`pnpm run test:node:smoke` and the `prepublishOnly` release guard pipeline.
+ * Why：Catches packaging/runtime import failures quickly before publishing broken dist outputs.
+ */
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);

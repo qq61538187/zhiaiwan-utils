@@ -16,50 +16,1550 @@
 			"import": "./dist/es/zhiaiwanUtils.js",
 			"default": "./dist/es/zhiaiwanUtils.js"
 		},
-		"./add": {
-			"types": "./dist/types/add.d.ts",
-			"import": "./dist/es/add.js",
-			"default": "./dist/es/add.js"
+		"./assign": {
+			"types": "./dist/types/assign.d.ts",
+			"import": "./dist/es/assign.js",
+			"default": "./dist/es/assign.js"
+		},
+		"./assignIn": {
+			"types": "./dist/types/assignIn.d.ts",
+			"import": "./dist/es/assignIn.js",
+			"default": "./dist/es/assignIn.js"
+		},
+		"./assignInWith": {
+			"types": "./dist/types/assignInWith.d.ts",
+			"import": "./dist/es/assignInWith.js",
+			"default": "./dist/es/assignInWith.js"
+		},
+		"./assignWith": {
+			"types": "./dist/types/assignWith.d.ts",
+			"import": "./dist/es/assignWith.js",
+			"default": "./dist/es/assignWith.js"
+		},
+		"./at": {
+			"types": "./dist/types/at.d.ts",
+			"import": "./dist/es/at.js",
+			"default": "./dist/es/at.js"
+		},
+		"./create": {
+			"types": "./dist/types/create.d.ts",
+			"import": "./dist/es/create.js",
+			"default": "./dist/es/create.js"
+		},
+		"./defaults": {
+			"types": "./dist/types/defaults.d.ts",
+			"import": "./dist/es/defaults.js",
+			"default": "./dist/es/defaults.js"
+		},
+		"./defaultsDeep": {
+			"types": "./dist/types/defaultsDeep.d.ts",
+			"import": "./dist/es/defaultsDeep.js",
+			"default": "./dist/es/defaultsDeep.js"
+		},
+		"./entries": {
+			"types": "./dist/types/entries.d.ts",
+			"import": "./dist/es/entries.js",
+			"default": "./dist/es/entries.js"
+		},
+		"./entriesIn": {
+			"types": "./dist/types/entriesIn.d.ts",
+			"import": "./dist/es/entriesIn.js",
+			"default": "./dist/es/entriesIn.js"
+		},
+		"./extend": {
+			"types": "./dist/types/extend.d.ts",
+			"import": "./dist/es/extend.js",
+			"default": "./dist/es/extend.js"
+		},
+		"./extendWith": {
+			"types": "./dist/types/extendWith.d.ts",
+			"import": "./dist/es/extendWith.js",
+			"default": "./dist/es/extendWith.js"
+		},
+		"./findKey": {
+			"types": "./dist/types/findKey.d.ts",
+			"import": "./dist/es/findKey.js",
+			"default": "./dist/es/findKey.js"
+		},
+		"./findLastKey": {
+			"types": "./dist/types/findLastKey.d.ts",
+			"import": "./dist/es/findLastKey.js",
+			"default": "./dist/es/findLastKey.js"
+		},
+		"./forIn": {
+			"types": "./dist/types/forIn.d.ts",
+			"import": "./dist/es/forIn.js",
+			"default": "./dist/es/forIn.js"
+		},
+		"./forInRight": {
+			"types": "./dist/types/forInRight.d.ts",
+			"import": "./dist/es/forInRight.js",
+			"default": "./dist/es/forInRight.js"
+		},
+		"./forOwn": {
+			"types": "./dist/types/forOwn.d.ts",
+			"import": "./dist/es/forOwn.js",
+			"default": "./dist/es/forOwn.js"
+		},
+		"./forOwnRight": {
+			"types": "./dist/types/forOwnRight.d.ts",
+			"import": "./dist/es/forOwnRight.js",
+			"default": "./dist/es/forOwnRight.js"
+		},
+		"./functions": {
+			"types": "./dist/types/functions.d.ts",
+			"import": "./dist/es/functions.js",
+			"default": "./dist/es/functions.js"
+		},
+		"./functionsIn": {
+			"types": "./dist/types/functionsIn.d.ts",
+			"import": "./dist/es/functionsIn.js",
+			"default": "./dist/es/functionsIn.js"
+		},
+		"./get": {
+			"types": "./dist/types/get.d.ts",
+			"import": "./dist/es/get.js",
+			"default": "./dist/es/get.js"
+		},
+		"./has": {
+			"types": "./dist/types/has.d.ts",
+			"import": "./dist/es/has.js",
+			"default": "./dist/es/has.js"
+		},
+		"./hasIn": {
+			"types": "./dist/types/hasIn.d.ts",
+			"import": "./dist/es/hasIn.js",
+			"default": "./dist/es/hasIn.js"
+		},
+		"./invert": {
+			"types": "./dist/types/invert.d.ts",
+			"import": "./dist/es/invert.js",
+			"default": "./dist/es/invert.js"
+		},
+		"./invertBy": {
+			"types": "./dist/types/invertBy.d.ts",
+			"import": "./dist/es/invertBy.js",
+			"default": "./dist/es/invertBy.js"
+		},
+		"./invoke": {
+			"types": "./dist/types/invoke.d.ts",
+			"import": "./dist/es/invoke.js",
+			"default": "./dist/es/invoke.js"
+		},
+		"./keys": {
+			"types": "./dist/types/keys.d.ts",
+			"import": "./dist/es/keys.js",
+			"default": "./dist/es/keys.js"
+		},
+		"./keysIn": {
+			"types": "./dist/types/keysIn.d.ts",
+			"import": "./dist/es/keysIn.js",
+			"default": "./dist/es/keysIn.js"
+		},
+		"./mapKeys": {
+			"types": "./dist/types/mapKeys.d.ts",
+			"import": "./dist/es/mapKeys.js",
+			"default": "./dist/es/mapKeys.js"
+		},
+		"./mapValues": {
+			"types": "./dist/types/mapValues.d.ts",
+			"import": "./dist/es/mapValues.js",
+			"default": "./dist/es/mapValues.js"
+		},
+		"./merge": {
+			"types": "./dist/types/merge.d.ts",
+			"import": "./dist/es/merge.js",
+			"default": "./dist/es/merge.js"
+		},
+		"./mergeWith": {
+			"types": "./dist/types/mergeWith.d.ts",
+			"import": "./dist/es/mergeWith.js",
+			"default": "./dist/es/mergeWith.js"
+		},
+		"./omit": {
+			"types": "./dist/types/omit.d.ts",
+			"import": "./dist/es/omit.js",
+			"default": "./dist/es/omit.js"
+		},
+		"./omitBy": {
+			"types": "./dist/types/omitBy.d.ts",
+			"import": "./dist/es/omitBy.js",
+			"default": "./dist/es/omitBy.js"
 		},
 		"./pick": {
 			"types": "./dist/types/pick.d.ts",
 			"import": "./dist/es/pick.js",
 			"default": "./dist/es/pick.js"
 		},
+		"./pickBy": {
+			"types": "./dist/types/pickBy.d.ts",
+			"import": "./dist/es/pickBy.js",
+			"default": "./dist/es/pickBy.js"
+		},
+		"./result": {
+			"types": "./dist/types/result.d.ts",
+			"import": "./dist/es/result.js",
+			"default": "./dist/es/result.js"
+		},
+		"./set": {
+			"types": "./dist/types/set.d.ts",
+			"import": "./dist/es/set.js",
+			"default": "./dist/es/set.js"
+		},
+		"./setWith": {
+			"types": "./dist/types/setWith.d.ts",
+			"import": "./dist/es/setWith.js",
+			"default": "./dist/es/setWith.js"
+		},
+		"./toPairs": {
+			"types": "./dist/types/toPairs.d.ts",
+			"import": "./dist/es/toPairs.js",
+			"default": "./dist/es/toPairs.js"
+		},
+		"./toPairsIn": {
+			"types": "./dist/types/toPairsIn.d.ts",
+			"import": "./dist/es/toPairsIn.js",
+			"default": "./dist/es/toPairsIn.js"
+		},
+		"./transform": {
+			"types": "./dist/types/transform.d.ts",
+			"import": "./dist/es/transform.js",
+			"default": "./dist/es/transform.js"
+		},
+		"./unset": {
+			"types": "./dist/types/unset.d.ts",
+			"import": "./dist/es/unset.js",
+			"default": "./dist/es/unset.js"
+		},
+		"./update": {
+			"types": "./dist/types/update.d.ts",
+			"import": "./dist/es/update.js",
+			"default": "./dist/es/update.js"
+		},
+		"./updateWith": {
+			"types": "./dist/types/updateWith.d.ts",
+			"import": "./dist/es/updateWith.js",
+			"default": "./dist/es/updateWith.js"
+		},
+		"./values": {
+			"types": "./dist/types/values.d.ts",
+			"import": "./dist/es/values.js",
+			"default": "./dist/es/values.js"
+		},
+		"./valuesIn": {
+			"types": "./dist/types/valuesIn.d.ts",
+			"import": "./dist/es/valuesIn.js",
+			"default": "./dist/es/valuesIn.js"
+		},
+		"./methods": {
+			"types": "./dist/types/methods.d.ts",
+			"import": "./dist/es/methods.js",
+			"default": "./dist/es/methods.js"
+		},
+		"./methodsIn": {
+			"types": "./dist/types/methodsIn.d.ts",
+			"import": "./dist/es/methodsIn.js",
+			"default": "./dist/es/methodsIn.js"
+		},
 		"./chunk": {
 			"types": "./dist/types/chunk.d.ts",
 			"import": "./dist/es/chunk.js",
 			"default": "./dist/es/chunk.js"
 		},
-		"./unique": {
-			"types": "./dist/types/unique.d.ts",
-			"import": "./dist/es/unique.js",
-			"default": "./dist/es/unique.js"
+		"./compact": {
+			"types": "./dist/types/compact.d.ts",
+			"import": "./dist/es/compact.js",
+			"default": "./dist/es/compact.js"
+		},
+		"./concat": {
+			"types": "./dist/types/concat.d.ts",
+			"import": "./dist/es/concat.js",
+			"default": "./dist/es/concat.js"
 		},
 		"./difference": {
 			"types": "./dist/types/difference.d.ts",
 			"import": "./dist/es/difference.js",
 			"default": "./dist/es/difference.js"
 		},
+		"./differenceBy": {
+			"types": "./dist/types/differenceBy.d.ts",
+			"import": "./dist/es/differenceBy.js",
+			"default": "./dist/es/differenceBy.js"
+		},
+		"./differenceWith": {
+			"types": "./dist/types/differenceWith.d.ts",
+			"import": "./dist/es/differenceWith.js",
+			"default": "./dist/es/differenceWith.js"
+		},
+		"./drop": {
+			"types": "./dist/types/drop.d.ts",
+			"import": "./dist/es/drop.js",
+			"default": "./dist/es/drop.js"
+		},
+		"./dropRight": {
+			"types": "./dist/types/dropRight.d.ts",
+			"import": "./dist/es/dropRight.js",
+			"default": "./dist/es/dropRight.js"
+		},
+		"./dropRightWhile": {
+			"types": "./dist/types/dropRightWhile.d.ts",
+			"import": "./dist/es/dropRightWhile.js",
+			"default": "./dist/es/dropRightWhile.js"
+		},
+		"./dropWhile": {
+			"types": "./dist/types/dropWhile.d.ts",
+			"import": "./dist/es/dropWhile.js",
+			"default": "./dist/es/dropWhile.js"
+		},
+		"./fill": {
+			"types": "./dist/types/fill.d.ts",
+			"import": "./dist/es/fill.js",
+			"default": "./dist/es/fill.js"
+		},
+		"./findIndex": {
+			"types": "./dist/types/findIndex.d.ts",
+			"import": "./dist/es/findIndex.js",
+			"default": "./dist/es/findIndex.js"
+		},
+		"./findLastIndex": {
+			"types": "./dist/types/findLastIndex.d.ts",
+			"import": "./dist/es/findLastIndex.js",
+			"default": "./dist/es/findLastIndex.js"
+		},
+		"./first": {
+			"types": "./dist/types/first.d.ts",
+			"import": "./dist/es/first.js",
+			"default": "./dist/es/first.js"
+		},
+		"./flatten": {
+			"types": "./dist/types/flatten.d.ts",
+			"import": "./dist/es/flatten.js",
+			"default": "./dist/es/flatten.js"
+		},
+		"./flattenDeep": {
+			"types": "./dist/types/flattenDeep.d.ts",
+			"import": "./dist/es/flattenDeep.js",
+			"default": "./dist/es/flattenDeep.js"
+		},
+		"./flattenDepth": {
+			"types": "./dist/types/flattenDepth.d.ts",
+			"import": "./dist/es/flattenDepth.js",
+			"default": "./dist/es/flattenDepth.js"
+		},
+		"./fromPairs": {
+			"types": "./dist/types/fromPairs.d.ts",
+			"import": "./dist/es/fromPairs.js",
+			"default": "./dist/es/fromPairs.js"
+		},
+		"./head": {
+			"types": "./dist/types/head.d.ts",
+			"import": "./dist/es/head.js",
+			"default": "./dist/es/head.js"
+		},
+		"./indexOf": {
+			"types": "./dist/types/indexOf.d.ts",
+			"import": "./dist/es/indexOf.js",
+			"default": "./dist/es/indexOf.js"
+		},
+		"./initial": {
+			"types": "./dist/types/initial.d.ts",
+			"import": "./dist/es/initial.js",
+			"default": "./dist/es/initial.js"
+		},
+		"./intersection": {
+			"types": "./dist/types/intersection.d.ts",
+			"import": "./dist/es/intersection.js",
+			"default": "./dist/es/intersection.js"
+		},
+		"./intersectionBy": {
+			"types": "./dist/types/intersectionBy.d.ts",
+			"import": "./dist/es/intersectionBy.js",
+			"default": "./dist/es/intersectionBy.js"
+		},
+		"./intersectionWith": {
+			"types": "./dist/types/intersectionWith.d.ts",
+			"import": "./dist/es/intersectionWith.js",
+			"default": "./dist/es/intersectionWith.js"
+		},
+		"./join": {
+			"types": "./dist/types/join.d.ts",
+			"import": "./dist/es/join.js",
+			"default": "./dist/es/join.js"
+		},
+		"./last": {
+			"types": "./dist/types/last.d.ts",
+			"import": "./dist/es/last.js",
+			"default": "./dist/es/last.js"
+		},
+		"./lastIndexOf": {
+			"types": "./dist/types/lastIndexOf.d.ts",
+			"import": "./dist/es/lastIndexOf.js",
+			"default": "./dist/es/lastIndexOf.js"
+		},
+		"./nth": {
+			"types": "./dist/types/nth.d.ts",
+			"import": "./dist/es/nth.js",
+			"default": "./dist/es/nth.js"
+		},
+		"./pull": {
+			"types": "./dist/types/pull.d.ts",
+			"import": "./dist/es/pull.js",
+			"default": "./dist/es/pull.js"
+		},
+		"./pullAll": {
+			"types": "./dist/types/pullAll.d.ts",
+			"import": "./dist/es/pullAll.js",
+			"default": "./dist/es/pullAll.js"
+		},
+		"./pullAllBy": {
+			"types": "./dist/types/pullAllBy.d.ts",
+			"import": "./dist/es/pullAllBy.js",
+			"default": "./dist/es/pullAllBy.js"
+		},
+		"./pullAllWith": {
+			"types": "./dist/types/pullAllWith.d.ts",
+			"import": "./dist/es/pullAllWith.js",
+			"default": "./dist/es/pullAllWith.js"
+		},
+		"./pullAt": {
+			"types": "./dist/types/pullAt.d.ts",
+			"import": "./dist/es/pullAt.js",
+			"default": "./dist/es/pullAt.js"
+		},
+		"./remove": {
+			"types": "./dist/types/remove.d.ts",
+			"import": "./dist/es/remove.js",
+			"default": "./dist/es/remove.js"
+		},
+		"./reverse": {
+			"types": "./dist/types/reverse.d.ts",
+			"import": "./dist/es/reverse.js",
+			"default": "./dist/es/reverse.js"
+		},
+		"./slice": {
+			"types": "./dist/types/slice.d.ts",
+			"import": "./dist/es/slice.js",
+			"default": "./dist/es/slice.js"
+		},
+		"./sortedIndex": {
+			"types": "./dist/types/sortedIndex.d.ts",
+			"import": "./dist/es/sortedIndex.js",
+			"default": "./dist/es/sortedIndex.js"
+		},
+		"./sortedIndexBy": {
+			"types": "./dist/types/sortedIndexBy.d.ts",
+			"import": "./dist/es/sortedIndexBy.js",
+			"default": "./dist/es/sortedIndexBy.js"
+		},
+		"./sortedIndexOf": {
+			"types": "./dist/types/sortedIndexOf.d.ts",
+			"import": "./dist/es/sortedIndexOf.js",
+			"default": "./dist/es/sortedIndexOf.js"
+		},
+		"./sortedLastIndex": {
+			"types": "./dist/types/sortedLastIndex.d.ts",
+			"import": "./dist/es/sortedLastIndex.js",
+			"default": "./dist/es/sortedLastIndex.js"
+		},
+		"./sortedLastIndexBy": {
+			"types": "./dist/types/sortedLastIndexBy.d.ts",
+			"import": "./dist/es/sortedLastIndexBy.js",
+			"default": "./dist/es/sortedLastIndexBy.js"
+		},
+		"./sortedLastIndexOf": {
+			"types": "./dist/types/sortedLastIndexOf.d.ts",
+			"import": "./dist/es/sortedLastIndexOf.js",
+			"default": "./dist/es/sortedLastIndexOf.js"
+		},
+		"./sortedUniq": {
+			"types": "./dist/types/sortedUniq.d.ts",
+			"import": "./dist/es/sortedUniq.js",
+			"default": "./dist/es/sortedUniq.js"
+		},
+		"./sortedUniqBy": {
+			"types": "./dist/types/sortedUniqBy.d.ts",
+			"import": "./dist/es/sortedUniqBy.js",
+			"default": "./dist/es/sortedUniqBy.js"
+		},
+		"./tail": {
+			"types": "./dist/types/tail.d.ts",
+			"import": "./dist/es/tail.js",
+			"default": "./dist/es/tail.js"
+		},
+		"./take": {
+			"types": "./dist/types/take.d.ts",
+			"import": "./dist/es/take.js",
+			"default": "./dist/es/take.js"
+		},
+		"./takeRight": {
+			"types": "./dist/types/takeRight.d.ts",
+			"import": "./dist/es/takeRight.js",
+			"default": "./dist/es/takeRight.js"
+		},
+		"./takeRightWhile": {
+			"types": "./dist/types/takeRightWhile.d.ts",
+			"import": "./dist/es/takeRightWhile.js",
+			"default": "./dist/es/takeRightWhile.js"
+		},
+		"./takeWhile": {
+			"types": "./dist/types/takeWhile.d.ts",
+			"import": "./dist/es/takeWhile.js",
+			"default": "./dist/es/takeWhile.js"
+		},
+		"./union": {
+			"types": "./dist/types/union.d.ts",
+			"import": "./dist/es/union.js",
+			"default": "./dist/es/union.js"
+		},
+		"./unionBy": {
+			"types": "./dist/types/unionBy.d.ts",
+			"import": "./dist/es/unionBy.js",
+			"default": "./dist/es/unionBy.js"
+		},
+		"./unionWith": {
+			"types": "./dist/types/unionWith.d.ts",
+			"import": "./dist/es/unionWith.js",
+			"default": "./dist/es/unionWith.js"
+		},
+		"./unique": {
+			"types": "./dist/types/unique.d.ts",
+			"import": "./dist/es/unique.js",
+			"default": "./dist/es/unique.js"
+		},
+		"./uniq": {
+			"types": "./dist/types/uniq.d.ts",
+			"import": "./dist/es/uniq.js",
+			"default": "./dist/es/uniq.js"
+		},
+		"./uniqBy": {
+			"types": "./dist/types/uniqBy.d.ts",
+			"import": "./dist/es/uniqBy.js",
+			"default": "./dist/es/uniqBy.js"
+		},
+		"./uniqWith": {
+			"types": "./dist/types/uniqWith.d.ts",
+			"import": "./dist/es/uniqWith.js",
+			"default": "./dist/es/uniqWith.js"
+		},
+		"./unzip": {
+			"types": "./dist/types/unzip.d.ts",
+			"import": "./dist/es/unzip.js",
+			"default": "./dist/es/unzip.js"
+		},
+		"./unzipWith": {
+			"types": "./dist/types/unzipWith.d.ts",
+			"import": "./dist/es/unzipWith.js",
+			"default": "./dist/es/unzipWith.js"
+		},
+		"./without": {
+			"types": "./dist/types/without.d.ts",
+			"import": "./dist/es/without.js",
+			"default": "./dist/es/without.js"
+		},
+		"./xor": {
+			"types": "./dist/types/xor.d.ts",
+			"import": "./dist/es/xor.js",
+			"default": "./dist/es/xor.js"
+		},
+		"./xorBy": {
+			"types": "./dist/types/xorBy.d.ts",
+			"import": "./dist/es/xorBy.js",
+			"default": "./dist/es/xorBy.js"
+		},
+		"./xorWith": {
+			"types": "./dist/types/xorWith.d.ts",
+			"import": "./dist/es/xorWith.js",
+			"default": "./dist/es/xorWith.js"
+		},
+		"./zip": {
+			"types": "./dist/types/zip.d.ts",
+			"import": "./dist/es/zip.js",
+			"default": "./dist/es/zip.js"
+		},
+		"./zipObject": {
+			"types": "./dist/types/zipObject.d.ts",
+			"import": "./dist/es/zipObject.js",
+			"default": "./dist/es/zipObject.js"
+		},
+		"./zipObjectDeep": {
+			"types": "./dist/types/zipObjectDeep.d.ts",
+			"import": "./dist/es/zipObjectDeep.js",
+			"default": "./dist/es/zipObjectDeep.js"
+		},
+		"./zipWith": {
+			"types": "./dist/types/zipWith.d.ts",
+			"import": "./dist/es/zipWith.js",
+			"default": "./dist/es/zipWith.js"
+		},
+		"./after": {
+			"types": "./dist/types/after.d.ts",
+			"import": "./dist/es/after.js",
+			"default": "./dist/es/after.js"
+		},
+		"./ary": {
+			"types": "./dist/types/ary.d.ts",
+			"import": "./dist/es/ary.js",
+			"default": "./dist/es/ary.js"
+		},
+		"./before": {
+			"types": "./dist/types/before.d.ts",
+			"import": "./dist/es/before.js",
+			"default": "./dist/es/before.js"
+		},
+		"./bind": {
+			"types": "./dist/types/bind.d.ts",
+			"import": "./dist/es/bind.js",
+			"default": "./dist/es/bind.js"
+		},
+		"./bindKey": {
+			"types": "./dist/types/bindKey.d.ts",
+			"import": "./dist/es/bindKey.js",
+			"default": "./dist/es/bindKey.js"
+		},
+		"./curry": {
+			"types": "./dist/types/curry.d.ts",
+			"import": "./dist/es/curry.js",
+			"default": "./dist/es/curry.js"
+		},
+		"./curryRight": {
+			"types": "./dist/types/curryRight.d.ts",
+			"import": "./dist/es/curryRight.js",
+			"default": "./dist/es/curryRight.js"
+		},
 		"./debounce": {
 			"types": "./dist/types/debounce.d.ts",
 			"import": "./dist/es/debounce.js",
 			"default": "./dist/es/debounce.js"
 		},
-		"./once": {
-			"types": "./dist/types/once.d.ts",
-			"import": "./dist/es/once.js",
-			"default": "./dist/es/once.js"
+		"./defer": {
+			"types": "./dist/types/defer.d.ts",
+			"import": "./dist/es/defer.js",
+			"default": "./dist/es/defer.js"
+		},
+		"./delay": {
+			"types": "./dist/types/delay.d.ts",
+			"import": "./dist/es/delay.js",
+			"default": "./dist/es/delay.js"
+		},
+		"./flip": {
+			"types": "./dist/types/flip.d.ts",
+			"import": "./dist/es/flip.js",
+			"default": "./dist/es/flip.js"
 		},
 		"./memoize": {
 			"types": "./dist/types/memoize.d.ts",
 			"import": "./dist/es/memoize.js",
 			"default": "./dist/es/memoize.js"
 		},
-		"./compose": {
-			"types": "./dist/types/compose.d.ts",
-			"import": "./dist/es/compose.js",
-			"default": "./dist/es/compose.js"
+		"./negate": {
+			"types": "./dist/types/negate.d.ts",
+			"import": "./dist/es/negate.js",
+			"default": "./dist/es/negate.js"
+		},
+		"./once": {
+			"types": "./dist/types/once.d.ts",
+			"import": "./dist/es/once.js",
+			"default": "./dist/es/once.js"
+		},
+		"./overArgs": {
+			"types": "./dist/types/overArgs.d.ts",
+			"import": "./dist/es/overArgs.js",
+			"default": "./dist/es/overArgs.js"
+		},
+		"./partial": {
+			"types": "./dist/types/partial.d.ts",
+			"import": "./dist/es/partial.js",
+			"default": "./dist/es/partial.js"
+		},
+		"./partialRight": {
+			"types": "./dist/types/partialRight.d.ts",
+			"import": "./dist/es/partialRight.js",
+			"default": "./dist/es/partialRight.js"
+		},
+		"./rearg": {
+			"types": "./dist/types/rearg.d.ts",
+			"import": "./dist/es/rearg.js",
+			"default": "./dist/es/rearg.js"
+		},
+		"./rest": {
+			"types": "./dist/types/rest.d.ts",
+			"import": "./dist/es/rest.js",
+			"default": "./dist/es/rest.js"
+		},
+		"./spread": {
+			"types": "./dist/types/spread.d.ts",
+			"import": "./dist/es/spread.js",
+			"default": "./dist/es/spread.js"
+		},
+		"./throttle": {
+			"types": "./dist/types/throttle.d.ts",
+			"import": "./dist/es/throttle.js",
+			"default": "./dist/es/throttle.js"
+		},
+		"./unary": {
+			"types": "./dist/types/unary.d.ts",
+			"import": "./dist/es/unary.js",
+			"default": "./dist/es/unary.js"
+		},
+		"./wrap": {
+			"types": "./dist/types/wrap.d.ts",
+			"import": "./dist/es/wrap.js",
+			"default": "./dist/es/wrap.js"
+		},
+		"./attempt": {
+			"types": "./dist/types/attempt.d.ts",
+			"import": "./dist/es/attempt.js",
+			"default": "./dist/es/attempt.js"
+		},
+		"./bindAll": {
+			"types": "./dist/types/bindAll.d.ts",
+			"import": "./dist/es/bindAll.js",
+			"default": "./dist/es/bindAll.js"
+		},
+		"./cond": {
+			"types": "./dist/types/cond.d.ts",
+			"import": "./dist/es/cond.js",
+			"default": "./dist/es/cond.js"
+		},
+		"./conforms": {
+			"types": "./dist/types/conforms.d.ts",
+			"import": "./dist/es/conforms.js",
+			"default": "./dist/es/conforms.js"
+		},
+		"./constant": {
+			"types": "./dist/types/constant.d.ts",
+			"import": "./dist/es/constant.js",
+			"default": "./dist/es/constant.js"
+		},
+		"./defaultTo": {
+			"types": "./dist/types/defaultTo.d.ts",
+			"import": "./dist/es/defaultTo.js",
+			"default": "./dist/es/defaultTo.js"
+		},
+		"./flow": {
+			"types": "./dist/types/flow.d.ts",
+			"import": "./dist/es/flow.js",
+			"default": "./dist/es/flow.js"
+		},
+		"./flowRight": {
+			"types": "./dist/types/flowRight.d.ts",
+			"import": "./dist/es/flowRight.js",
+			"default": "./dist/es/flowRight.js"
+		},
+		"./identity": {
+			"types": "./dist/types/identity.d.ts",
+			"import": "./dist/es/identity.js",
+			"default": "./dist/es/identity.js"
+		},
+		"./iteratee": {
+			"types": "./dist/types/iteratee.d.ts",
+			"import": "./dist/es/iteratee.js",
+			"default": "./dist/es/iteratee.js"
+		},
+		"./matches": {
+			"types": "./dist/types/matches.d.ts",
+			"import": "./dist/es/matches.js",
+			"default": "./dist/es/matches.js"
+		},
+		"./matchesProperty": {
+			"types": "./dist/types/matchesProperty.d.ts",
+			"import": "./dist/es/matchesProperty.js",
+			"default": "./dist/es/matchesProperty.js"
+		},
+		"./method": {
+			"types": "./dist/types/method.d.ts",
+			"import": "./dist/es/method.js",
+			"default": "./dist/es/method.js"
+		},
+		"./methodOf": {
+			"types": "./dist/types/methodOf.d.ts",
+			"import": "./dist/es/methodOf.js",
+			"default": "./dist/es/methodOf.js"
+		},
+		"./mixin": {
+			"types": "./dist/types/mixin.d.ts",
+			"import": "./dist/es/mixin.js",
+			"default": "./dist/es/mixin.js"
+		},
+		"./noConflict": {
+			"types": "./dist/types/noConflict.d.ts",
+			"import": "./dist/es/noConflict.js",
+			"default": "./dist/es/noConflict.js"
+		},
+		"./noop": {
+			"types": "./dist/types/noop.d.ts",
+			"import": "./dist/es/noop.js",
+			"default": "./dist/es/noop.js"
+		},
+		"./nthArg": {
+			"types": "./dist/types/nthArg.d.ts",
+			"import": "./dist/es/nthArg.js",
+			"default": "./dist/es/nthArg.js"
+		},
+		"./over": {
+			"types": "./dist/types/over.d.ts",
+			"import": "./dist/es/over.js",
+			"default": "./dist/es/over.js"
+		},
+		"./overEvery": {
+			"types": "./dist/types/overEvery.d.ts",
+			"import": "./dist/es/overEvery.js",
+			"default": "./dist/es/overEvery.js"
+		},
+		"./overSome": {
+			"types": "./dist/types/overSome.d.ts",
+			"import": "./dist/es/overSome.js",
+			"default": "./dist/es/overSome.js"
+		},
+		"./property": {
+			"types": "./dist/types/property.d.ts",
+			"import": "./dist/es/property.js",
+			"default": "./dist/es/property.js"
+		},
+		"./propertyOf": {
+			"types": "./dist/types/propertyOf.d.ts",
+			"import": "./dist/es/propertyOf.js",
+			"default": "./dist/es/propertyOf.js"
+		},
+		"./range": {
+			"types": "./dist/types/range.d.ts",
+			"import": "./dist/es/range.js",
+			"default": "./dist/es/range.js"
+		},
+		"./rangeRight": {
+			"types": "./dist/types/rangeRight.d.ts",
+			"import": "./dist/es/rangeRight.js",
+			"default": "./dist/es/rangeRight.js"
+		},
+		"./runInContext": {
+			"types": "./dist/types/runInContext.d.ts",
+			"import": "./dist/es/runInContext.js",
+			"default": "./dist/es/runInContext.js"
+		},
+		"./stubArray": {
+			"types": "./dist/types/stubArray.d.ts",
+			"import": "./dist/es/stubArray.js",
+			"default": "./dist/es/stubArray.js"
+		},
+		"./stubFalse": {
+			"types": "./dist/types/stubFalse.d.ts",
+			"import": "./dist/es/stubFalse.js",
+			"default": "./dist/es/stubFalse.js"
+		},
+		"./stubObject": {
+			"types": "./dist/types/stubObject.d.ts",
+			"import": "./dist/es/stubObject.js",
+			"default": "./dist/es/stubObject.js"
+		},
+		"./stubString": {
+			"types": "./dist/types/stubString.d.ts",
+			"import": "./dist/es/stubString.js",
+			"default": "./dist/es/stubString.js"
+		},
+		"./stubTrue": {
+			"types": "./dist/types/stubTrue.d.ts",
+			"import": "./dist/es/stubTrue.js",
+			"default": "./dist/es/stubTrue.js"
+		},
+		"./times": {
+			"types": "./dist/types/times.d.ts",
+			"import": "./dist/es/times.js",
+			"default": "./dist/es/times.js"
+		},
+		"./toPath": {
+			"types": "./dist/types/toPath.d.ts",
+			"import": "./dist/es/toPath.js",
+			"default": "./dist/es/toPath.js"
+		},
+		"./uniqueId": {
+			"types": "./dist/types/uniqueId.d.ts",
+			"import": "./dist/es/uniqueId.js",
+			"default": "./dist/es/uniqueId.js"
+		},
+		"./countBy": {
+			"types": "./dist/types/countBy.d.ts",
+			"import": "./dist/es/countBy.js",
+			"default": "./dist/es/countBy.js"
+		},
+		"./every": {
+			"types": "./dist/types/every.d.ts",
+			"import": "./dist/es/every.js",
+			"default": "./dist/es/every.js"
+		},
+		"./filter": {
+			"types": "./dist/types/filter.d.ts",
+			"import": "./dist/es/filter.js",
+			"default": "./dist/es/filter.js"
+		},
+		"./find": {
+			"types": "./dist/types/find.d.ts",
+			"import": "./dist/es/find.js",
+			"default": "./dist/es/find.js"
+		},
+		"./findLast": {
+			"types": "./dist/types/findLast.d.ts",
+			"import": "./dist/es/findLast.js",
+			"default": "./dist/es/findLast.js"
+		},
+		"./flatMap": {
+			"types": "./dist/types/flatMap.d.ts",
+			"import": "./dist/es/flatMap.js",
+			"default": "./dist/es/flatMap.js"
+		},
+		"./flatMapDeep": {
+			"types": "./dist/types/flatMapDeep.d.ts",
+			"import": "./dist/es/flatMapDeep.js",
+			"default": "./dist/es/flatMapDeep.js"
+		},
+		"./flatMapDepth": {
+			"types": "./dist/types/flatMapDepth.d.ts",
+			"import": "./dist/es/flatMapDepth.js",
+			"default": "./dist/es/flatMapDepth.js"
+		},
+		"./forEach": {
+			"types": "./dist/types/forEach.d.ts",
+			"import": "./dist/es/forEach.js",
+			"default": "./dist/es/forEach.js"
+		},
+		"./forEachRight": {
+			"types": "./dist/types/forEachRight.d.ts",
+			"import": "./dist/es/forEachRight.js",
+			"default": "./dist/es/forEachRight.js"
+		},
+		"./groupBy": {
+			"types": "./dist/types/groupBy.d.ts",
+			"import": "./dist/es/groupBy.js",
+			"default": "./dist/es/groupBy.js"
+		},
+		"./includes": {
+			"types": "./dist/types/includes.d.ts",
+			"import": "./dist/es/includes.js",
+			"default": "./dist/es/includes.js"
+		},
+		"./invokeMap": {
+			"types": "./dist/types/invokeMap.d.ts",
+			"import": "./dist/es/invokeMap.js",
+			"default": "./dist/es/invokeMap.js"
+		},
+		"./keyBy": {
+			"types": "./dist/types/keyBy.d.ts",
+			"import": "./dist/es/keyBy.js",
+			"default": "./dist/es/keyBy.js"
+		},
+		"./map": {
+			"types": "./dist/types/map.d.ts",
+			"import": "./dist/es/map.js",
+			"default": "./dist/es/map.js"
+		},
+		"./orderBy": {
+			"types": "./dist/types/orderBy.d.ts",
+			"import": "./dist/es/orderBy.js",
+			"default": "./dist/es/orderBy.js"
+		},
+		"./partition": {
+			"types": "./dist/types/partition.d.ts",
+			"import": "./dist/es/partition.js",
+			"default": "./dist/es/partition.js"
+		},
+		"./reduce": {
+			"types": "./dist/types/reduce.d.ts",
+			"import": "./dist/es/reduce.js",
+			"default": "./dist/es/reduce.js"
+		},
+		"./reduceRight": {
+			"types": "./dist/types/reduceRight.d.ts",
+			"import": "./dist/es/reduceRight.js",
+			"default": "./dist/es/reduceRight.js"
+		},
+		"./reject": {
+			"types": "./dist/types/reject.d.ts",
+			"import": "./dist/es/reject.js",
+			"default": "./dist/es/reject.js"
+		},
+		"./sample": {
+			"types": "./dist/types/sample.d.ts",
+			"import": "./dist/es/sample.js",
+			"default": "./dist/es/sample.js"
+		},
+		"./sampleSize": {
+			"types": "./dist/types/sampleSize.d.ts",
+			"import": "./dist/es/sampleSize.js",
+			"default": "./dist/es/sampleSize.js"
+		},
+		"./shuffle": {
+			"types": "./dist/types/shuffle.d.ts",
+			"import": "./dist/es/shuffle.js",
+			"default": "./dist/es/shuffle.js"
+		},
+		"./size": {
+			"types": "./dist/types/size.d.ts",
+			"import": "./dist/es/size.js",
+			"default": "./dist/es/size.js"
+		},
+		"./some": {
+			"types": "./dist/types/some.d.ts",
+			"import": "./dist/es/some.js",
+			"default": "./dist/es/some.js"
+		},
+		"./sortBy": {
+			"types": "./dist/types/sortBy.d.ts",
+			"import": "./dist/es/sortBy.js",
+			"default": "./dist/es/sortBy.js"
+		},
+		"./each": {
+			"types": "./dist/types/each.d.ts",
+			"import": "./dist/es/each.js",
+			"default": "./dist/es/each.js"
+		},
+		"./eachRight": {
+			"types": "./dist/types/eachRight.d.ts",
+			"import": "./dist/es/eachRight.js",
+			"default": "./dist/es/eachRight.js"
+		},
+		"./camelCase": {
+			"types": "./dist/types/camelCase.d.ts",
+			"import": "./dist/es/camelCase.js",
+			"default": "./dist/es/camelCase.js"
+		},
+		"./capitalize": {
+			"types": "./dist/types/capitalize.d.ts",
+			"import": "./dist/es/capitalize.js",
+			"default": "./dist/es/capitalize.js"
+		},
+		"./deburr": {
+			"types": "./dist/types/deburr.d.ts",
+			"import": "./dist/es/deburr.js",
+			"default": "./dist/es/deburr.js"
+		},
+		"./endsWith": {
+			"types": "./dist/types/endsWith.d.ts",
+			"import": "./dist/es/endsWith.js",
+			"default": "./dist/es/endsWith.js"
+		},
+		"./escape": {
+			"types": "./dist/types/escape.d.ts",
+			"import": "./dist/es/escape.js",
+			"default": "./dist/es/escape.js"
+		},
+		"./escapeRegExp": {
+			"types": "./dist/types/escapeRegExp.d.ts",
+			"import": "./dist/es/escapeRegExp.js",
+			"default": "./dist/es/escapeRegExp.js"
+		},
+		"./kebabCase": {
+			"types": "./dist/types/kebabCase.d.ts",
+			"import": "./dist/es/kebabCase.js",
+			"default": "./dist/es/kebabCase.js"
+		},
+		"./lowerCase": {
+			"types": "./dist/types/lowerCase.d.ts",
+			"import": "./dist/es/lowerCase.js",
+			"default": "./dist/es/lowerCase.js"
+		},
+		"./lowerFirst": {
+			"types": "./dist/types/lowerFirst.d.ts",
+			"import": "./dist/es/lowerFirst.js",
+			"default": "./dist/es/lowerFirst.js"
+		},
+		"./pad": {
+			"types": "./dist/types/pad.d.ts",
+			"import": "./dist/es/pad.js",
+			"default": "./dist/es/pad.js"
+		},
+		"./padEnd": {
+			"types": "./dist/types/padEnd.d.ts",
+			"import": "./dist/es/padEnd.js",
+			"default": "./dist/es/padEnd.js"
+		},
+		"./padStart": {
+			"types": "./dist/types/padStart.d.ts",
+			"import": "./dist/es/padStart.js",
+			"default": "./dist/es/padStart.js"
+		},
+		"./parseInt": {
+			"types": "./dist/types/parseInt.d.ts",
+			"import": "./dist/es/parseInt.js",
+			"default": "./dist/es/parseInt.js"
+		},
+		"./repeat": {
+			"types": "./dist/types/repeat.d.ts",
+			"import": "./dist/es/repeat.js",
+			"default": "./dist/es/repeat.js"
+		},
+		"./replace": {
+			"types": "./dist/types/replace.d.ts",
+			"import": "./dist/es/replace.js",
+			"default": "./dist/es/replace.js"
+		},
+		"./snakeCase": {
+			"types": "./dist/types/snakeCase.d.ts",
+			"import": "./dist/es/snakeCase.js",
+			"default": "./dist/es/snakeCase.js"
+		},
+		"./split": {
+			"types": "./dist/types/split.d.ts",
+			"import": "./dist/es/split.js",
+			"default": "./dist/es/split.js"
+		},
+		"./startCase": {
+			"types": "./dist/types/startCase.d.ts",
+			"import": "./dist/es/startCase.js",
+			"default": "./dist/es/startCase.js"
+		},
+		"./startsWith": {
+			"types": "./dist/types/startsWith.d.ts",
+			"import": "./dist/es/startsWith.js",
+			"default": "./dist/es/startsWith.js"
+		},
+		"./template": {
+			"types": "./dist/types/template.d.ts",
+			"import": "./dist/es/template.js",
+			"default": "./dist/es/template.js"
+		},
+		"./toLower": {
+			"types": "./dist/types/toLower.d.ts",
+			"import": "./dist/es/toLower.js",
+			"default": "./dist/es/toLower.js"
+		},
+		"./toUpper": {
+			"types": "./dist/types/toUpper.d.ts",
+			"import": "./dist/es/toUpper.js",
+			"default": "./dist/es/toUpper.js"
+		},
+		"./trim": {
+			"types": "./dist/types/trim.d.ts",
+			"import": "./dist/es/trim.js",
+			"default": "./dist/es/trim.js"
+		},
+		"./trimEnd": {
+			"types": "./dist/types/trimEnd.d.ts",
+			"import": "./dist/es/trimEnd.js",
+			"default": "./dist/es/trimEnd.js"
+		},
+		"./trimStart": {
+			"types": "./dist/types/trimStart.d.ts",
+			"import": "./dist/es/trimStart.js",
+			"default": "./dist/es/trimStart.js"
+		},
+		"./truncate": {
+			"types": "./dist/types/truncate.d.ts",
+			"import": "./dist/es/truncate.js",
+			"default": "./dist/es/truncate.js"
+		},
+		"./unescape": {
+			"types": "./dist/types/unescape.d.ts",
+			"import": "./dist/es/unescape.js",
+			"default": "./dist/es/unescape.js"
+		},
+		"./upperCase": {
+			"types": "./dist/types/upperCase.d.ts",
+			"import": "./dist/es/upperCase.js",
+			"default": "./dist/es/upperCase.js"
+		},
+		"./upperFirst": {
+			"types": "./dist/types/upperFirst.d.ts",
+			"import": "./dist/es/upperFirst.js",
+			"default": "./dist/es/upperFirst.js"
+		},
+		"./words": {
+			"types": "./dist/types/words.d.ts",
+			"import": "./dist/es/words.js",
+			"default": "./dist/es/words.js"
+		},
+		"./castArray": {
+			"types": "./dist/types/castArray.d.ts",
+			"import": "./dist/es/castArray.js",
+			"default": "./dist/es/castArray.js"
+		},
+		"./clone": {
+			"types": "./dist/types/clone.d.ts",
+			"import": "./dist/es/clone.js",
+			"default": "./dist/es/clone.js"
+		},
+		"./cloneDeep": {
+			"types": "./dist/types/cloneDeep.d.ts",
+			"import": "./dist/es/cloneDeep.js",
+			"default": "./dist/es/cloneDeep.js"
+		},
+		"./cloneDeepWith": {
+			"types": "./dist/types/cloneDeepWith.d.ts",
+			"import": "./dist/es/cloneDeepWith.js",
+			"default": "./dist/es/cloneDeepWith.js"
+		},
+		"./cloneWith": {
+			"types": "./dist/types/cloneWith.d.ts",
+			"import": "./dist/es/cloneWith.js",
+			"default": "./dist/es/cloneWith.js"
+		},
+		"./conformsTo": {
+			"types": "./dist/types/conformsTo.d.ts",
+			"import": "./dist/es/conformsTo.js",
+			"default": "./dist/es/conformsTo.js"
+		},
+		"./eq": {
+			"types": "./dist/types/eq.d.ts",
+			"import": "./dist/es/eq.js",
+			"default": "./dist/es/eq.js"
+		},
+		"./gt": {
+			"types": "./dist/types/gt.d.ts",
+			"import": "./dist/es/gt.js",
+			"default": "./dist/es/gt.js"
+		},
+		"./gte": {
+			"types": "./dist/types/gte.d.ts",
+			"import": "./dist/es/gte.js",
+			"default": "./dist/es/gte.js"
+		},
+		"./isArguments": {
+			"types": "./dist/types/isArguments.d.ts",
+			"import": "./dist/es/isArguments.js",
+			"default": "./dist/es/isArguments.js"
+		},
+		"./isArray": {
+			"types": "./dist/types/isArray.d.ts",
+			"import": "./dist/es/isArray.js",
+			"default": "./dist/es/isArray.js"
+		},
+		"./isArrayBuffer": {
+			"types": "./dist/types/isArrayBuffer.d.ts",
+			"import": "./dist/es/isArrayBuffer.js",
+			"default": "./dist/es/isArrayBuffer.js"
+		},
+		"./isArrayLike": {
+			"types": "./dist/types/isArrayLike.d.ts",
+			"import": "./dist/es/isArrayLike.js",
+			"default": "./dist/es/isArrayLike.js"
+		},
+		"./isArrayLikeObject": {
+			"types": "./dist/types/isArrayLikeObject.d.ts",
+			"import": "./dist/es/isArrayLikeObject.js",
+			"default": "./dist/es/isArrayLikeObject.js"
+		},
+		"./isBoolean": {
+			"types": "./dist/types/isBoolean.d.ts",
+			"import": "./dist/es/isBoolean.js",
+			"default": "./dist/es/isBoolean.js"
+		},
+		"./isBuffer": {
+			"types": "./dist/types/isBuffer.d.ts",
+			"import": "./dist/es/isBuffer.js",
+			"default": "./dist/es/isBuffer.js"
+		},
+		"./isDate": {
+			"types": "./dist/types/isDate.d.ts",
+			"import": "./dist/es/isDate.js",
+			"default": "./dist/es/isDate.js"
+		},
+		"./isElement": {
+			"types": "./dist/types/isElement.d.ts",
+			"import": "./dist/es/isElement.js",
+			"default": "./dist/es/isElement.js"
+		},
+		"./isEmpty": {
+			"types": "./dist/types/isEmpty.d.ts",
+			"import": "./dist/es/isEmpty.js",
+			"default": "./dist/es/isEmpty.js"
+		},
+		"./isEqual": {
+			"types": "./dist/types/isEqual.d.ts",
+			"import": "./dist/es/isEqual.js",
+			"default": "./dist/es/isEqual.js"
+		},
+		"./isEqualWith": {
+			"types": "./dist/types/isEqualWith.d.ts",
+			"import": "./dist/es/isEqualWith.js",
+			"default": "./dist/es/isEqualWith.js"
+		},
+		"./isError": {
+			"types": "./dist/types/isError.d.ts",
+			"import": "./dist/es/isError.js",
+			"default": "./dist/es/isError.js"
+		},
+		"./isFinite": {
+			"types": "./dist/types/isFinite.d.ts",
+			"import": "./dist/es/isFinite.js",
+			"default": "./dist/es/isFinite.js"
+		},
+		"./isFunction": {
+			"types": "./dist/types/isFunction.d.ts",
+			"import": "./dist/es/isFunction.js",
+			"default": "./dist/es/isFunction.js"
+		},
+		"./isInteger": {
+			"types": "./dist/types/isInteger.d.ts",
+			"import": "./dist/es/isInteger.js",
+			"default": "./dist/es/isInteger.js"
+		},
+		"./isLength": {
+			"types": "./dist/types/isLength.d.ts",
+			"import": "./dist/es/isLength.js",
+			"default": "./dist/es/isLength.js"
+		},
+		"./isMap": {
+			"types": "./dist/types/isMap.d.ts",
+			"import": "./dist/es/isMap.js",
+			"default": "./dist/es/isMap.js"
+		},
+		"./isMatch": {
+			"types": "./dist/types/isMatch.d.ts",
+			"import": "./dist/es/isMatch.js",
+			"default": "./dist/es/isMatch.js"
+		},
+		"./isMatchWith": {
+			"types": "./dist/types/isMatchWith.d.ts",
+			"import": "./dist/es/isMatchWith.js",
+			"default": "./dist/es/isMatchWith.js"
+		},
+		"./isNaN": {
+			"types": "./dist/types/isNaN.d.ts",
+			"import": "./dist/es/isNaN.js",
+			"default": "./dist/es/isNaN.js"
+		},
+		"./isNative": {
+			"types": "./dist/types/isNative.d.ts",
+			"import": "./dist/es/isNative.js",
+			"default": "./dist/es/isNative.js"
+		},
+		"./isNil": {
+			"types": "./dist/types/isNil.d.ts",
+			"import": "./dist/es/isNil.js",
+			"default": "./dist/es/isNil.js"
+		},
+		"./isNull": {
+			"types": "./dist/types/isNull.d.ts",
+			"import": "./dist/es/isNull.js",
+			"default": "./dist/es/isNull.js"
+		},
+		"./isNumber": {
+			"types": "./dist/types/isNumber.d.ts",
+			"import": "./dist/es/isNumber.js",
+			"default": "./dist/es/isNumber.js"
+		},
+		"./isObject": {
+			"types": "./dist/types/isObject.d.ts",
+			"import": "./dist/es/isObject.js",
+			"default": "./dist/es/isObject.js"
+		},
+		"./isObjectLike": {
+			"types": "./dist/types/isObjectLike.d.ts",
+			"import": "./dist/es/isObjectLike.js",
+			"default": "./dist/es/isObjectLike.js"
+		},
+		"./isPlainObject": {
+			"types": "./dist/types/isPlainObject.d.ts",
+			"import": "./dist/es/isPlainObject.js",
+			"default": "./dist/es/isPlainObject.js"
+		},
+		"./isRegExp": {
+			"types": "./dist/types/isRegExp.d.ts",
+			"import": "./dist/es/isRegExp.js",
+			"default": "./dist/es/isRegExp.js"
+		},
+		"./isSafeInteger": {
+			"types": "./dist/types/isSafeInteger.d.ts",
+			"import": "./dist/es/isSafeInteger.js",
+			"default": "./dist/es/isSafeInteger.js"
+		},
+		"./isSet": {
+			"types": "./dist/types/isSet.d.ts",
+			"import": "./dist/es/isSet.js",
+			"default": "./dist/es/isSet.js"
+		},
+		"./isString": {
+			"types": "./dist/types/isString.d.ts",
+			"import": "./dist/es/isString.js",
+			"default": "./dist/es/isString.js"
+		},
+		"./isSymbol": {
+			"types": "./dist/types/isSymbol.d.ts",
+			"import": "./dist/es/isSymbol.js",
+			"default": "./dist/es/isSymbol.js"
+		},
+		"./isTypedArray": {
+			"types": "./dist/types/isTypedArray.d.ts",
+			"import": "./dist/es/isTypedArray.js",
+			"default": "./dist/es/isTypedArray.js"
+		},
+		"./isUndefined": {
+			"types": "./dist/types/isUndefined.d.ts",
+			"import": "./dist/es/isUndefined.js",
+			"default": "./dist/es/isUndefined.js"
+		},
+		"./isWeakMap": {
+			"types": "./dist/types/isWeakMap.d.ts",
+			"import": "./dist/es/isWeakMap.js",
+			"default": "./dist/es/isWeakMap.js"
+		},
+		"./isWeakSet": {
+			"types": "./dist/types/isWeakSet.d.ts",
+			"import": "./dist/es/isWeakSet.js",
+			"default": "./dist/es/isWeakSet.js"
+		},
+		"./lt": {
+			"types": "./dist/types/lt.d.ts",
+			"import": "./dist/es/lt.js",
+			"default": "./dist/es/lt.js"
+		},
+		"./lte": {
+			"types": "./dist/types/lte.d.ts",
+			"import": "./dist/es/lte.js",
+			"default": "./dist/es/lte.js"
+		},
+		"./toArray": {
+			"types": "./dist/types/toArray.d.ts",
+			"import": "./dist/es/toArray.js",
+			"default": "./dist/es/toArray.js"
+		},
+		"./toFinite": {
+			"types": "./dist/types/toFinite.d.ts",
+			"import": "./dist/es/toFinite.js",
+			"default": "./dist/es/toFinite.js"
+		},
+		"./toInteger": {
+			"types": "./dist/types/toInteger.d.ts",
+			"import": "./dist/es/toInteger.js",
+			"default": "./dist/es/toInteger.js"
+		},
+		"./toLength": {
+			"types": "./dist/types/toLength.d.ts",
+			"import": "./dist/es/toLength.js",
+			"default": "./dist/es/toLength.js"
+		},
+		"./toNumber": {
+			"types": "./dist/types/toNumber.d.ts",
+			"import": "./dist/es/toNumber.js",
+			"default": "./dist/es/toNumber.js"
+		},
+		"./toPlainObject": {
+			"types": "./dist/types/toPlainObject.d.ts",
+			"import": "./dist/es/toPlainObject.js",
+			"default": "./dist/es/toPlainObject.js"
+		},
+		"./toSafeInteger": {
+			"types": "./dist/types/toSafeInteger.d.ts",
+			"import": "./dist/es/toSafeInteger.js",
+			"default": "./dist/es/toSafeInteger.js"
+		},
+		"./toString": {
+			"types": "./dist/types/toString.d.ts",
+			"import": "./dist/es/toString.js",
+			"default": "./dist/es/toString.js"
+		},
+		"./add": {
+			"types": "./dist/types/add.d.ts",
+			"import": "./dist/es/add.js",
+			"default": "./dist/es/add.js"
+		},
+		"./ceil": {
+			"types": "./dist/types/ceil.d.ts",
+			"import": "./dist/es/ceil.js",
+			"default": "./dist/es/ceil.js"
+		},
+		"./divide": {
+			"types": "./dist/types/divide.d.ts",
+			"import": "./dist/es/divide.js",
+			"default": "./dist/es/divide.js"
+		},
+		"./floor": {
+			"types": "./dist/types/floor.d.ts",
+			"import": "./dist/es/floor.js",
+			"default": "./dist/es/floor.js"
+		},
+		"./max": {
+			"types": "./dist/types/max.d.ts",
+			"import": "./dist/es/max.js",
+			"default": "./dist/es/max.js"
+		},
+		"./maxBy": {
+			"types": "./dist/types/maxBy.d.ts",
+			"import": "./dist/es/maxBy.js",
+			"default": "./dist/es/maxBy.js"
+		},
+		"./mean": {
+			"types": "./dist/types/mean.d.ts",
+			"import": "./dist/es/mean.js",
+			"default": "./dist/es/mean.js"
+		},
+		"./meanBy": {
+			"types": "./dist/types/meanBy.d.ts",
+			"import": "./dist/es/meanBy.js",
+			"default": "./dist/es/meanBy.js"
+		},
+		"./min": {
+			"types": "./dist/types/min.d.ts",
+			"import": "./dist/es/min.js",
+			"default": "./dist/es/min.js"
+		},
+		"./minBy": {
+			"types": "./dist/types/minBy.d.ts",
+			"import": "./dist/es/minBy.js",
+			"default": "./dist/es/minBy.js"
+		},
+		"./multiply": {
+			"types": "./dist/types/multiply.d.ts",
+			"import": "./dist/es/multiply.js",
+			"default": "./dist/es/multiply.js"
+		},
+		"./round": {
+			"types": "./dist/types/round.d.ts",
+			"import": "./dist/es/round.js",
+			"default": "./dist/es/round.js"
+		},
+		"./subtract": {
+			"types": "./dist/types/subtract.d.ts",
+			"import": "./dist/es/subtract.js",
+			"default": "./dist/es/subtract.js"
+		},
+		"./sum": {
+			"types": "./dist/types/sum.d.ts",
+			"import": "./dist/es/sum.js",
+			"default": "./dist/es/sum.js"
+		},
+		"./sumBy": {
+			"types": "./dist/types/sumBy.d.ts",
+			"import": "./dist/es/sumBy.js",
+			"default": "./dist/es/sumBy.js"
+		},
+		"./clamp": {
+			"types": "./dist/types/clamp.d.ts",
+			"import": "./dist/es/clamp.js",
+			"default": "./dist/es/clamp.js"
+		},
+		"./inRange": {
+			"types": "./dist/types/inRange.d.ts",
+			"import": "./dist/es/inRange.js",
+			"default": "./dist/es/inRange.js"
+		},
+		"./random": {
+			"types": "./dist/types/random.d.ts",
+			"import": "./dist/es/random.js",
+			"default": "./dist/es/random.js"
+		},
+		"./now": {
+			"types": "./dist/types/now.d.ts",
+			"import": "./dist/es/now.js",
+			"default": "./dist/es/now.js"
+		},
+		"./chain": {
+			"types": "./dist/types/chain.d.ts",
+			"import": "./dist/es/chain.js",
+			"default": "./dist/es/chain.js"
+		},
+		"./tap": {
+			"types": "./dist/types/tap.d.ts",
+			"import": "./dist/es/tap.js",
+			"default": "./dist/es/tap.js"
+		},
+		"./thru": {
+			"types": "./dist/types/thru.d.ts",
+			"import": "./dist/es/thru.js",
+			"default": "./dist/es/thru.js"
+		},
+		"./object": {
+			"types": "./dist/types/object.d.ts",
+			"import": "./dist/es/object.js",
+			"default": "./dist/es/object.js"
 		},
 		"./array": {
 			"types": "./dist/types/array.d.ts",
@@ -71,15 +1571,45 @@
 			"import": "./dist/es/func.js",
 			"default": "./dist/es/func.js"
 		},
-		"./object": {
-			"types": "./dist/types/object.d.ts",
-			"import": "./dist/es/object.js",
-			"default": "./dist/es/object.js"
+		"./util": {
+			"types": "./dist/types/util.d.ts",
+			"import": "./dist/es/util.js",
+			"default": "./dist/es/util.js"
+		},
+		"./collection": {
+			"types": "./dist/types/collection.d.ts",
+			"import": "./dist/es/collection.js",
+			"default": "./dist/es/collection.js"
+		},
+		"./string": {
+			"types": "./dist/types/string.d.ts",
+			"import": "./dist/es/string.js",
+			"default": "./dist/es/string.js"
+		},
+		"./lang": {
+			"types": "./dist/types/lang.d.ts",
+			"import": "./dist/es/lang.js",
+			"default": "./dist/es/lang.js"
 		},
 		"./math": {
 			"types": "./dist/types/math.d.ts",
 			"import": "./dist/es/math.js",
 			"default": "./dist/es/math.js"
+		},
+		"./number": {
+			"types": "./dist/types/number.d.ts",
+			"import": "./dist/es/number.js",
+			"default": "./dist/es/number.js"
+		},
+		"./date": {
+			"types": "./dist/types/date.d.ts",
+			"import": "./dist/es/date.js",
+			"default": "./dist/es/date.js"
+		},
+		"./seq": {
+			"types": "./dist/types/seq.d.ts",
+			"import": "./dist/es/seq.js",
+			"default": "./dist/es/seq.js"
 		}
 	},
 	"engines": {
@@ -89,8 +1619,8 @@
 		"clean": "rimraf dist .tmp-types",
 		"verify:methods": "node scripts/verify-methods.mjs",
 		"verify:exports": "node scripts/verify-exports.mjs",
+		"verify:jsdoc": "node scripts/verify-jsdoc.mjs",
 		"verify:artifacts": "node scripts/verify-artifacts.mjs",
-		"fix:exports": "node scripts/fix-exports.mjs",
 		"build:cjs": "node scripts/build-runtime.mjs",
 		"build:es": "tsc -p tsconfig.esm.json && node scripts/build-esm.mjs",
 		"build:umd": "node scripts/build-browser.mjs",
@@ -106,11 +1636,10 @@
 		"docs:dev": "vitepress dev docs",
 		"docs:build": "vitepress build docs",
 		"docs:preview": "vitepress preview docs",
-		"changeset:version": "changeset version",
-		"changeset:publish": "changeset publish",
+		"commitlint": "node scripts/commitlint.mjs",
 		"prepare": "husky",
 		"prepack": "pnpm run build && pnpm run verify:artifacts",
-		"prepublishOnly": "pnpm run prepack && pnpm run verify:types && pnpm run test:run && pnpm run test:node:smoke"
+		"prepublishOnly": "pnpm run prepack && pnpm run verify:types && pnpm run verify:jsdoc && pnpm run test:run && pnpm run test:node:smoke"
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx,json,mjs,md}": [
@@ -119,9 +1648,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.4",
-		"@changesets/cli": "^2.29.8",
-		"@commitlint/cli": "^20.4.2",
-		"@commitlint/config-conventional": "^20.4.2",
+		"@rollup/plugin-commonjs": "^29.0.0",
+		"@rollup/plugin-node-resolve": "^16.0.3",
 		"@rollup/plugin-terser": "^0.4.4",
 		"@rollup/plugin-typescript": "^12.1.2",
 		"@types/node": "^25.3.1",

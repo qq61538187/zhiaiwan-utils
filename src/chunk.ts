@@ -1,7 +1,8 @@
 /**
  * Splits an array into groups the length of `size`.
  *
- * Non-integer values are truncated and values less than 1 return an empty array.
+ * Non-array inputs or non-finite/less-than-one sizes return an empty array.
+ * Non-integer finite sizes are truncated before chunking.
  *
  * @since +0.1.0
  * @category Array
@@ -14,15 +15,15 @@
  * // => [[1, 2], [3, 4], [5]]
  */
 export function chunk<T>(array: readonly T[], size: number): T[][] {
-  const normalizedSize = Number.isFinite(size) ? Math.trunc(size) : 0
-  if (!Array.isArray(array) || normalizedSize <= 0) {
-    return []
-  }
-  const result: T[][] = []
-  for (let i = 0; i < array.length; i += normalizedSize) {
-    result.push(array.slice(i, i + normalizedSize))
-  }
-  return result
+	const normalizedSize = Number.isFinite(size) ? Math.trunc(size) : 0;
+	if (!Array.isArray(array) || normalizedSize <= 0) {
+		return [];
+	}
+	const result: T[][] = [];
+	for (let i = 0; i < array.length; i += normalizedSize) {
+		result.push(array.slice(i, i + normalizedSize));
+	}
+	return result;
 }
 
-export default chunk
+export default chunk;

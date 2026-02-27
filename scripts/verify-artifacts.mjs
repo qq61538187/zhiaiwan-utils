@@ -1,3 +1,8 @@
+/**
+ * Purpose：Verify all required dist artifacts exist at expected output paths after build.
+ * Used in：`pnpm run verify:artifacts`, invoked by `prepack` before publish.
+ * Why：Prevents incomplete or mislocated build outputs from being packed and released.
+ */
 import { access } from "node:fs/promises";
 import { resolve } from "node:path";
 import {

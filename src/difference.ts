@@ -14,20 +14,22 @@
  * // => [1, 3]
  */
 export function difference<
-  const TArray extends readonly unknown[],
-  const TValueArray extends readonly unknown[]
+	const TArray extends readonly unknown[],
+	const TValueArray extends readonly unknown[],
 >(
-  array: TArray,
-  values: TValueArray
+	array: TArray,
+	values: TValueArray,
 ): Array<Exclude<TArray[number], TValueArray[number]>> {
-  if (!Array.isArray(array)) {
-    return []
-  }
-  if (!Array.isArray(values) || values.length === 0) {
-    return [...array] as Array<Exclude<TArray[number], TValueArray[number]>>
-  }
-  const excludes = new Set(values)
-  return array.filter((item) => !excludes.has(item)) as Array<Exclude<TArray[number], TValueArray[number]>>
+	if (!Array.isArray(array)) {
+		return [];
+	}
+	if (!Array.isArray(values) || values.length === 0) {
+		return [...array] as Array<Exclude<TArray[number], TValueArray[number]>>;
+	}
+	const excludes = new Set(values);
+	return array.filter((item) => !excludes.has(item)) as Array<
+		Exclude<TArray[number], TValueArray[number]>
+	>;
 }
 
-export default difference
+export default difference;

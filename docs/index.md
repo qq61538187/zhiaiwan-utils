@@ -5,7 +5,7 @@ A lightweight utility library for **ESM + TypeScript**, covering common array, o
 ## Features
 
 - ESM-first design for modern frontend and Node.js projects
-- Strong type inference across scenarios like `compose`, `memoize`, and `pick`
+- Strong type inference across scenarios like `flowRight`, `memoize`, and `pick`
 - Multi-target artifacts: `dist/es`, `dist/cjs`, `dist/umd`, `dist/types`
 - Complete validation workflow: type checks, tests, builds, and pre-publish smoke checks
 

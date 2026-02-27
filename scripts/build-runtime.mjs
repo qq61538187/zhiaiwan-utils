@@ -1,5 +1,10 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
+/**
+ * Purpose：Assemble runtime entry files (main + grouped exports) for Node/CJS-compatible distribution.
+ * Used in：`pnpm run build:cjs`, then consumed by the aggregate `build`, prepack, and publish checks.
+ * Why：Runtime entry generation must stay synchronized with method/group metadata to avoid broken imports.
+ */
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, relative, resolve } from "node:path";
 import { RUNTIME_ENTRY_FILE } from "./artifact-config.mjs";
 import { createFullEntryUtilityLines } from "./full-entry-methods.mjs";
 import {
@@ -21,17 +26,64 @@ const runtimeUtilityMethodLines = createFullEntryUtilityLines({
 	noConflictBodyLines: ["return this;"],
 });
 
-const toCjsCode = (code) =>
-	code
+const toCjsCode = (code) => {
+	const exportedFunctionNames = Array.from(
+		code.matchAll(/^export function\s+([a-zA-Z_$][\w$]*)\s*\(/gm),
+		(match) => match[1],
+	);
+	const exportedConstNames = Array.from(
+		code.matchAll(/^export const\s+([a-zA-Z_$][\w$]*)\s*=/gm),
+		(match) => match[1],
+	);
+	const hasDefaultExport = /^export default\s+/m.test(code);
+	const transformed = code
 		.replace(
-			/^import\s+([a-zA-Z_$][\w$]*)\s+from\s+'(.+?)';$/gm,
+			/^import\s+\{([^}]+)\}\s+from\s+['"](.+?)['"];$/gm,
+			(_m, imports, mod) => {
+				const normalized = String(imports).replace(/\s+as\s+/g, ": ");
+				return `var {${normalized}} = require('${mod}');`;
+			},
+		)
+		.replace(
+			/^import\s+([a-zA-Z_$][\w$]*)\s+from\s+['"](.+?)['"];$/gm,
 			"var $1 = require('$2');",
 		)
 		.replace(/^export function\s+([a-zA-Z_$][\w$]*)\s*\(/gm, `function $1(`)
+		.replace(/^export const\s+([a-zA-Z_$][\w$]*)\s*=/gm, "const $1 =")
+		.replace(/^export\s+\{[^}]+\};$/gm, "")
 		.replace(/^export default\s+([a-zA-Z_$][\w$]*);$/gm, `module.exports = $1;`)
 		.replace(/^export default\s+\{/gm, `module.exports = {`);
 
+	if (hasDefaultExport) {
+		return transformed;
+	}
+
+	const exportNames = [
+		...new Set([...exportedFunctionNames, ...exportedConstNames]),
+	];
+	if (exportNames.length === 0) {
+		return transformed;
+	}
+	return `${transformed}\n\nmodule.exports = { ${exportNames.join(", ")} };\n`;
+};
+
 await mkdir(distRuntimeDir, { recursive: true });
+
+const listJsFilesRecursively = async (targetDir) => {
+	const dirEntries = await readdir(targetDir, { withFileTypes: true });
+	const files = [];
+	for (const entry of dirEntries) {
+		const absolutePath = resolve(targetDir, entry.name);
+		if (entry.isDirectory()) {
+			files.push(...(await listJsFilesRecursively(absolutePath)));
+			continue;
+		}
+		if (entry.isFile() && entry.name.endsWith(".js")) {
+			files.push(absolutePath);
+		}
+	}
+	return files;
+};
 
 for (const name of ROOT_METHODS) {
 	const source = await readFile(resolve(distEsmDir, `${name}.js`), "utf8");
@@ -40,6 +92,18 @@ for (const name of ROOT_METHODS) {
 		toCjsCode(source),
 		"utf8",
 	);
+}
+
+const esmInternalDir = resolve(distEsmDir, "internal");
+const internalFiles = await listJsFilesRecursively(esmInternalDir).catch(
+	() => [],
+);
+for (const internalFile of internalFiles) {
+	const relativePath = relative(distEsmDir, internalFile);
+	const outputPath = resolve(distRuntimeDir, relativePath);
+	await mkdir(dirname(outputPath), { recursive: true });
+	const source = await readFile(internalFile, "utf8");
+	await writeFile(outputPath, toCjsCode(source), "utf8");
 }
 
 for (const groupName of GROUP_EXPORTS) {

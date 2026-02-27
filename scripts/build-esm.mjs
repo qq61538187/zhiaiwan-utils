@@ -1,3 +1,8 @@
+/**
+ * Purpose：Generate ESM-facing entry artifacts and normalize export/import wiring for package consumers.
+ * Used in：`pnpm run build:es`, which is part of the default build and prepack flow.
+ * Why：ESM consumers rely on stable entry structure; this script prevents manual export mismatch and regressions.
+ */
 import { rm, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { resolve } from "node:path";
@@ -94,8 +99,6 @@ const cleanupCandidates = [
 	"types.js",
 	"function.js",
 	"function.default.js",
-	"lodash.js",
-	"lodash.default.js",
 	"zhiaiwan-utils.js",
 	"zhiaiwan-utils.default.js",
 ];

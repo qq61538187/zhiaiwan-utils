@@ -26,7 +26,7 @@ yarn add @zhiaiwan/utils
 
 ```ts
 // Full entry (recommended for discoverability)
-import { add, chunk, compose } from '@zhiaiwan/utils'
+import { add, chunk, flowRight } from '@zhiaiwan/utils'
 
 // Per-method import
 import addDefault from '@zhiaiwan/utils/add'
@@ -81,15 +81,19 @@ const runOnce = func.once((value: number) => value + 1)
 ## Local Validation
 
 ```bash
+pnpm run lint
 pnpm run typecheck
-pnpm run build
 pnpm run verify:types
 pnpm run test:run
+pnpm run build
+pnpm run verify:artifacts
+pnpm run test:node:smoke
 ```
 
 ## Pre-publish Check
 
 ```bash
+pnpm run docs:build
 pnpm pack --dry-run
 ```
 

@@ -42,3 +42,18 @@ declare module "../dist/es/math.js" {
 	const value: unknown;
 	export default value;
 }
+
+declare module "../dist/es/collection.js" {
+	const value: unknown;
+	export default value;
+}
+
+declare module "../dist/es/string.js" {
+	const value: unknown;
+	export default value;
+}
+
+declare module "../dist/es/lang.js" {
+	const value: unknown;
+	export default value;
+}

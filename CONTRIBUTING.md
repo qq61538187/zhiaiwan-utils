@@ -46,6 +46,21 @@ pnpm run docs:build
   2. Add a grouped export object in `src/index.ts`
   3. Add a matching docs page (for example, `docs/api/<group>.md`, with method-name anchors)
 
+## API Example Alignment (Lodash 4.17.23)
+
+- Source of truth for API examples is the live Lodash page: `https://lodash.com/docs/4.17.23`.
+- You must collect examples via `/agent-browser` (do not update examples from memory).
+- Required extraction workflow:
+  1. `agent-browser open https://lodash.com/docs/4.17.23`
+  2. `agent-browser snapshot -i`
+  3. Extract the target method `Example` section from the live page
+  4. Update `docs/api/*.md` examples with the extracted content
+- Keep Lodash example order and output comments (`// =>`) unchanged.
+- For mapped methods (for example `unique` -> `uniq`, `each` -> `forEach`), keep a `Mapped from Lodash: ...` note in the method section.
+- Regenerate mapping/evidence files when examples change:
+  - `docs/guide/lodash-example-mapping.md`
+  - `docs/guide/lodash-browser-evidence.json`
+
 ## Versioning and Release (Changesets)
 
 - New features and bug fixes should include a changeset
