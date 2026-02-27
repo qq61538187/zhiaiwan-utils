@@ -25,6 +25,7 @@ Before opening a PR, run at least:
 ```bash
 pnpm run lint
 pnpm run typecheck
+pnpm run sync:exports
 pnpm run verify:types
 pnpm run test:run
 pnpm run build
@@ -65,6 +66,23 @@ pnpm run docs:build
 
 - New features and bug fixes should include a changeset
 - See `.changeset/README.md` for usage
+
+### Release Execution Order
+
+Use this sequence before manual publish:
+
+```bash
+pnpm run sync:exports
+pnpm run lint
+pnpm run typecheck
+pnpm run verify:types
+pnpm run test:run
+pnpm run build
+pnpm run verify:artifacts
+pnpm run test:node:smoke
+pnpm run changeset:version
+pnpm run changeset:publish
+```
 
 ## Pull Request
 

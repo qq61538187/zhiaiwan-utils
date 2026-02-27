@@ -39,3 +39,9 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+      - name: Verify Types
+        run: pnpm run verify:types
+
+      - name: Node Smoke Test
+        run: pnpm run test:node:smoke

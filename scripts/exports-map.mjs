@@ -13,6 +13,7 @@ export const createExpectedExports = () => {
 			{
 				types: `./dist/types/${ARTIFACT_BASENAME}.d.ts`,
 				import: `./dist/es/${ARTIFACT_BASENAME}.js`,
+				require: `./dist/cjs/${ARTIFACT_BASENAME}.js`,
 				default: `./dist/es/${ARTIFACT_BASENAME}.js`,
 			},
 		],
@@ -21,6 +22,7 @@ export const createExpectedExports = () => {
 			{
 				types: `./dist/types/${name}.d.ts`,
 				import: `./dist/es/${name}.js`,
+				require: `./dist/cjs/${name}.js`,
 				default: `./dist/es/${name}.js`,
 			},
 		]),

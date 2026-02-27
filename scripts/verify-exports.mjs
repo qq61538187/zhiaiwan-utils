@@ -22,7 +22,7 @@ const assertPath = (key, expected) => {
 	if (!actual) {
 		throw new Error(`Missing exports entry: ${key}`);
 	}
-	for (const field of ["types", "import", "default"]) {
+	for (const field of ["types", "import", "require", "default"]) {
 		if (actual[field] !== expected[field]) {
 			throw new Error(
 				`Invalid exports entry ${key}.${field}, expected "${expected[field]}", got "${actual[field]}"`,

@@ -102,13 +102,14 @@ vitest.config.ts  # test runner configuration
 ├─ dist/                         # distribution layer (generated)
 │  ├─ esm/                       # ESM outputs for modern toolchains
 │  ├─ cjs/                       # CJS outputs for compatibility
-│  ├─ browser/                   # browser/UMD outputs
+│  ├─ umd/                       # browser/UMD outputs
 │  └─ types/                     # declaration files for TypeScript users
 ├─ .changeset/                   # release management layer (versioning/changelog)
 ├─ .github/                      # CI/CD and collaboration automation
 ├─ package.json                  # package contract (exports/scripts/engines)
 ├─ tsconfig.json                 # base TS config
-├─ tsconfig.build.json           # build-focused TS config
+├─ tsconfig.esm.json             # ESM build TS config
+├─ tsconfig.types.json           # declaration build TS config
 ├─ tsconfig.type-tests.json      # type-test TS config
 ├─ rollup.config.mjs             # bundling pipeline definition
 └─ vitest.config.ts              # test runner pipeline definition
@@ -153,12 +154,15 @@ pnpm pack --dry-run
 
 - `pnpm run lint`
 - `pnpm run typecheck`
+- `pnpm run sync:exports`
 - `pnpm run verify:types`
 - `pnpm run test:run`
 - `pnpm run build`
 - `pnpm run verify:artifacts`
 - `pnpm run test:node:smoke`
 - `pnpm run docs:build`
+- `pnpm run changeset:version`
+- `pnpm run changeset:publish`
 
 ## Tech Stack
 

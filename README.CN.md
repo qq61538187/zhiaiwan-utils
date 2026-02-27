@@ -110,13 +110,14 @@ dist/           # 构建产物（自动生成）
 ├─ dist/                         # 发布产物层（自动生成）
 │  ├─ esm/                       # 面向现代工具链的 ESM 输出
 │  ├─ cjs/                       # 兼容场景的 CJS 输出
-│  ├─ browser/                   # 浏览器/UMD 输出
+│  ├─ umd/                       # 浏览器/UMD 输出
 │  └─ types/                     # TypeScript 声明文件输出
 ├─ .changeset/                   # 发布管理层（版本/变更记录）
 ├─ .github/                      # CI/CD 与协作自动化
 ├─ package.json                  # 包契约（exports/scripts/engines）
 ├─ tsconfig.json                 # 基础 TS 配置
-├─ tsconfig.build.json           # 构建用 TS 配置
+├─ tsconfig.esm.json             # ESM 构建 TS 配置
+├─ tsconfig.types.json           # 类型声明构建 TS 配置
 ├─ tsconfig.type-tests.json      # 类型测试 TS 配置
 ├─ rollup.config.mjs             # 打包流水线定义
 └─ vitest.config.ts              # 测试流水线定义
@@ -161,12 +162,15 @@ pnpm pack --dry-run
 
 - `pnpm run lint`
 - `pnpm run typecheck`
+- `pnpm run sync:exports`
 - `pnpm run verify:types`
 - `pnpm run test:run`
 - `pnpm run build`
 - `pnpm run verify:artifacts`
 - `pnpm run test:node:smoke`
 - `pnpm run docs:build`
+- `pnpm run changeset:version`
+- `pnpm run changeset:publish`
 
 ## 技术栈
 
