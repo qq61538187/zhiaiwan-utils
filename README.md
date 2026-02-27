@@ -5,7 +5,7 @@
 [![CI](https://github.com/zhiaiwan/utils/actions/workflows/ci.yml/badge.svg)](https://github.com/zhiaiwan/utils/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-A pure function utility library with ESM/CJS/runtime/type outputs.
+A pure function utility library extended from Lodash 4.17.23, with ESM/CJS/runtime/type outputs.
 
 ## Installation
 
@@ -72,6 +72,48 @@ vitest.config.ts  # test runner configuration
 .github/        # CI/release workflows and collaboration templates
 ```
 
+### Architecture-Oriented Directory Details
+
+```text
+.
+├─ src/                          # source architecture (single responsibility utilities)
+│  ├─ index.ts                   # root entry: named exports + grouped exports
+│  ├─ array.ts                   # array group entry
+│  ├─ func.ts                    # function group entry
+│  ├─ object.ts                  # object group entry
+│  ├─ math.ts                    # math group entry
+│  ├─ add.ts                     # per-method module (subpath import target)
+│  ├─ chunk.ts                   # per-method module
+│  └─ ...                        # other pure utility modules
+├─ tests/                        # runtime quality layer (behavior correctness)
+│  ├─ *.test.ts                  # unit tests for public runtime behavior
+│  └─ ...                        # scenario and edge-case tests
+├─ type-tests/                   # type quality layer (inference and contracts)
+│  ├─ *.ts                       # compile-time assertions for API typings
+│  └─ ...                        # generic/overload/edge inference checks
+├─ scripts/                      # engineering automation layer
+│  ├─ verify-*.mjs               # artifact/export/type validation scripts
+│  ├─ smoke-*.mjs                # Node smoke scripts for packed outputs
+│  └─ commitlint.mjs             # commit message policy helper
+├─ docs/                         # documentation architecture
+│  ├─ guide/                     # onboarding and usage guides
+│  ├─ api/                       # API references with examples
+│  └─ .vitepress/                # docs site config/theme
+├─ dist/                         # distribution layer (generated)
+│  ├─ esm/                       # ESM outputs for modern toolchains
+│  ├─ cjs/                       # CJS outputs for compatibility
+│  ├─ browser/                   # browser/UMD outputs
+│  └─ types/                     # declaration files for TypeScript users
+├─ .changeset/                   # release management layer (versioning/changelog)
+├─ .github/                      # CI/CD and collaboration automation
+├─ package.json                  # package contract (exports/scripts/engines)
+├─ tsconfig.json                 # base TS config
+├─ tsconfig.build.json           # build-focused TS config
+├─ tsconfig.type-tests.json      # type-test TS config
+├─ rollup.config.mjs             # bundling pipeline definition
+└─ vitest.config.ts              # test runner pipeline definition
+```
+
 ## FAQ
 
 ### Why is ESM recommended if CJS still exists?
@@ -121,6 +163,7 @@ pnpm pack --dry-run
 ## Tech Stack
 
 - TypeScript
+- Lodash
 - Vitest
 - Rollup
 - VitePress

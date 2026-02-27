@@ -5,7 +5,7 @@
 [![CI](https://github.com/zhiaiwan/utils/actions/workflows/ci.yml/badge.svg)](https://github.com/zhiaiwan/utils/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-一个纯函数工具库，提供 ESM/CJS/runtime/type 产物输出。
+一个基于 Lodash 4.17.23 扩展的纯函数工具库，提供 ESM/CJS/runtime/type 产物输出。
 
 ## 安装
 
@@ -80,6 +80,48 @@ docs/           # VitePress 文档（guide + api）
 dist/           # 构建产物（自动生成）
 ```
 
+### 架构导向的详细目录结构
+
+```text
+.
+├─ src/                          # 源码架构层（单一职责的纯函数模块）
+│  ├─ index.ts                   # 根入口：命名导出 + 分组导出
+│  ├─ array.ts                   # array 分组入口
+│  ├─ func.ts                    # func 分组入口
+│  ├─ object.ts                  # object 分组入口
+│  ├─ math.ts                    # math 分组入口
+│  ├─ add.ts                     # 单方法模块（子路径导入目标）
+│  ├─ chunk.ts                   # 单方法模块
+│  └─ ...                        # 其他纯函数模块
+├─ tests/                        # 运行时质量层（行为正确性）
+│  ├─ *.test.ts                  # 对外行为单测
+│  └─ ...                        # 场景与边界测试
+├─ type-tests/                   # 类型质量层（推断与契约）
+│  ├─ *.ts                       # 编译期类型断言
+│  └─ ...                        # 泛型/重载/边界推断校验
+├─ scripts/                      # 工程自动化层
+│  ├─ verify-*.mjs               # 产物/导出/类型校验脚本
+│  ├─ smoke-*.mjs                # 打包产物 Node 冒烟脚本
+│  └─ commitlint.mjs             # 提交信息规范辅助脚本
+├─ docs/                         # 文档架构层
+│  ├─ guide/                     # 入门与使用指南
+│  ├─ api/                       # API 说明与示例
+│  └─ .vitepress/                # 文档站点配置与主题
+├─ dist/                         # 发布产物层（自动生成）
+│  ├─ esm/                       # 面向现代工具链的 ESM 输出
+│  ├─ cjs/                       # 兼容场景的 CJS 输出
+│  ├─ browser/                   # 浏览器/UMD 输出
+│  └─ types/                     # TypeScript 声明文件输出
+├─ .changeset/                   # 发布管理层（版本/变更记录）
+├─ .github/                      # CI/CD 与协作自动化
+├─ package.json                  # 包契约（exports/scripts/engines）
+├─ tsconfig.json                 # 基础 TS 配置
+├─ tsconfig.build.json           # 构建用 TS 配置
+├─ tsconfig.type-tests.json      # 类型测试 TS 配置
+├─ rollup.config.mjs             # 打包流水线定义
+└─ vitest.config.ts              # 测试流水线定义
+```
+
 ## FAQ / 常见问题
 
 ### 为什么推荐 ESM，但仍保留 CJS？
@@ -129,6 +171,7 @@ pnpm pack --dry-run
 ## 技术栈
 
 - TypeScript
+- Lodash
 - Vitest
 - Rollup
 - VitePress
