@@ -60,6 +60,7 @@ const groupedExportsSidebarItem = {
 export default defineConfig({
 	title: "zhiaiwan-utils",
 	description: "ESM + TypeScript utility library documentation",
+	base: "/zhiaiwan-utils/",
 	lang: "en-US",
 	cleanUrls: true,
 	themeConfig: {

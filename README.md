@@ -9,6 +9,9 @@
 
 A pure function utility library extended from Lodash 4.17.23, with ESM/CJS/runtime/type outputs.
 
+Docs URL (GitHub Pages): `https://qq61538187.github.io/zhiaiwan-utils/`
+
+
 ## Installation
 
 ```bash

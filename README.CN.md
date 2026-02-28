@@ -9,6 +9,8 @@
 
 一个基于 Lodash 4.17.23 扩展的纯函数工具库，提供 ESM/CJS/runtime/type 产物输出。
 
+文档访问地址（GitHub Pages）：`https://qq61538187.github.io/zhiaiwan-utils/`
+
 ## 安装
 
 ```bash
