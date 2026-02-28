@@ -1,1 +1,1 @@
-pnpm lint-staged
+node scripts/dev/pre-commit-biome.mjs
