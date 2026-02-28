@@ -1976,7 +1976,7 @@
 		"test:coverage:src": "vitest run --coverage --exclude \"tests/**/*.dist.test.ts\"",
 		"test:coverage:dist": "pnpm run build && pnpm run test:dist",
 		"test:coverage": "pnpm run test:coverage:src",
-		"test:dist": "vitest run tests/full-entry.dist.test.ts tests/grouping.dist.test.ts",
+		"test:dist": "vitest run --passWithNoTests \"tests/**/*.dist.test.ts\"",
 		"test:run": "vitest run",
 		"lint": "biome lint ./src ./tests ./scripts",
 		"fix": "biome check --write ./src ./tests ./scripts",
