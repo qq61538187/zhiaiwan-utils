@@ -8,7 +8,7 @@ import type { PropertyPath } from "./types.js";
  *
  * @since +0.1.0
  * @category Object
- * @param {unknown} object The object to query.
+ * @param {object | null | undefined} object The object to query.
  * @param {PropertyPath} path The path of the property to get.
  * @param {TDefault} [defaultValue] The value returned for `undefined` resolved values.
  * @returns {unknown | TDefault} Returns the resolved value.
@@ -16,6 +16,9 @@ import type { PropertyPath } from "./types.js";
  *
  * get({ a: [{ b: 2 }] }, 'a[0].b')
  * // => 2
+ *
+ * get(null, 'a.b', 'safe')
+ * // => 'safe'
  */
 export function get<TDefault = undefined>(
 	object: unknown,

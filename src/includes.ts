@@ -17,13 +17,16 @@ const sameValueZero = (left: unknown, right: unknown): boolean =>
  * @since +0.1.0
  * @category Collection
  * @param {Collection<TValue> | string | null | undefined} collection The collection to inspect.
- * @param {unknown} value The value to search for.
+ * @param {any} value The value to search for.
  * @param {number} [fromIndex=0] The index to search from.
  * @returns {boolean} Returns `true` if `value` is found, else `false`.
  * @example
  *
  * includes([1, 2, 3], 1)
  * // => true
+ *
+ * includes(undefined, 1)
+ * // => false
  */
 export function includes<TValue>(
 	collection: Collection<TValue> | string | null | undefined,
@@ -39,9 +42,7 @@ export function includes<TValue>(
 		return collection.includes(value, startIndex);
 	}
 
-	const values = toCollectionEntries(collection as Collection<TValue>).map(
-		([, item]) => item,
-	);
+	const values = toCollectionEntries(collection as Collection<TValue>).map(([, item]) => item);
 	const startIndex = toStartIndex(values.length, fromIndex);
 	for (let index = startIndex; index < values.length; index += 1) {
 		if (sameValueZero(values[index], value)) {

@@ -1,11 +1,6 @@
 import { toIterateeCore } from "./iteratee-core.js";
-import {
-	getAtPath,
-	hasAtPath,
-	invokeAtPath,
-	setAtPath,
-	toPathCore,
-} from "./path-core.js";
+import { getAtPath, hasAtPath, invokeAtPath, setAtPath, toPathCore } from "./path-core.js";
+import { isUnsafePropertyKey } from "./security-core.js";
 
 const isObjectLike = (value: unknown): value is Record<PropertyKey, unknown> =>
 	typeof value === "object" && value !== null;
@@ -76,6 +71,9 @@ const mergeDeep = (
 	) => unknown,
 ): Record<PropertyKey, unknown> => {
 	for (const key of Reflect.ownKeys(source)) {
+		if (isUnsafePropertyKey(key)) {
+			continue;
+		}
 		const srcValue = source[key];
 		const objValue = target[key];
 		if (customizer) {
@@ -97,6 +95,9 @@ export const assignIn = <T extends object>(
 	for (const source of sources) {
 		if (!isObjectLike(source)) continue;
 		for (const key in source) {
+			if (isUnsafePropertyKey(key)) {
+				continue;
+			}
 			(object as Record<PropertyKey, unknown>)[key] = source[key];
 		}
 	}
@@ -115,11 +116,13 @@ export const assignWith = <T extends object>(
 	) => unknown,
 ): T => {
 	for (const key of Reflect.ownKeys(source)) {
+		if (isUnsafePropertyKey(key)) {
+			continue;
+		}
 		const current = (object as Record<PropertyKey, unknown>)[key];
 		const value = source[key];
 		const customized = customizer?.(current, value, key, object, source);
-		(object as Record<PropertyKey, unknown>)[key] =
-			customized === undefined ? value : customized;
+		(object as Record<PropertyKey, unknown>)[key] = customized === undefined ? value : customized;
 	}
 	return object;
 };
@@ -136,11 +139,13 @@ export const assignInWith = <T extends object>(
 	) => unknown,
 ): T => {
 	for (const key in source) {
+		if (isUnsafePropertyKey(key)) {
+			continue;
+		}
 		const current = (object as Record<PropertyKey, unknown>)[key];
 		const value = source[key];
 		const customized = customizer?.(current, value, key, object, source);
-		(object as Record<PropertyKey, unknown>)[key] =
-			customized === undefined ? value : customized;
+		(object as Record<PropertyKey, unknown>)[key] = customized === undefined ? value : customized;
 	}
 	return object;
 };
@@ -149,19 +154,20 @@ export const create = (
 	prototype: object | null,
 	properties?: PropertyDescriptorMap,
 ): Record<PropertyKey, unknown> =>
-	(properties
-		? Object.create(prototype, properties)
-		: Object.create(prototype)) as Record<PropertyKey, unknown>;
+	(properties ? Object.create(prototype, properties) : Object.create(prototype)) as Record<
+		PropertyKey,
+		unknown
+	>;
 
-export const defaultsDeep = <T extends object>(
-	object: T,
-	...sources: unknown[]
-): T => {
+export const defaultsDeep = <T extends object>(object: T, ...sources: unknown[]): T => {
 	const apply = (
 		target: Record<PropertyKey, unknown>,
 		source: Record<PropertyKey, unknown>,
 	): Record<PropertyKey, unknown> => {
 		for (const key of Reflect.ownKeys(source)) {
+			if (isUnsafePropertyKey(key)) {
+				continue;
+			}
 			const srcValue = source[key];
 			const objValue = target[key];
 			if (objValue === undefined) {
@@ -175,8 +181,7 @@ export const defaultsDeep = <T extends object>(
 		return target;
 	};
 	for (const source of sources) {
-		if (isObjectLike(source))
-			apply(object as Record<PropertyKey, unknown>, source);
+		if (isObjectLike(source)) apply(object as Record<PropertyKey, unknown>, source);
 	}
 	return object;
 };
@@ -199,10 +204,7 @@ export const forIn = <T extends object>(
 	iteratee: (value: unknown, key: string, object: T) => unknown,
 ): T => {
 	for (const key in object) {
-		if (
-			iteratee((object as Record<string, unknown>)[key], key, object) === false
-		)
-			break;
+		if (iteratee((object as Record<string, unknown>)[key], key, object) === false) break;
 	}
 	return object;
 };
@@ -214,10 +216,7 @@ export const forInRight = <T extends object>(
 	const keys: string[] = [];
 	for (const key in object) keys.push(key);
 	for (const key of keys.reverse()) {
-		if (
-			iteratee((object as Record<string, unknown>)[key], key, object) === false
-		)
-			break;
+		if (iteratee((object as Record<string, unknown>)[key], key, object) === false) break;
 	}
 	return object;
 };
@@ -227,10 +226,7 @@ export const forOwn = <T extends object>(
 	iteratee: (value: unknown, key: string, object: T) => unknown,
 ): T => {
 	for (const key of Object.keys(object as Record<string, unknown>)) {
-		if (
-			iteratee((object as Record<string, unknown>)[key], key, object) === false
-		)
-			break;
+		if (iteratee((object as Record<string, unknown>)[key], key, object) === false) break;
 	}
 	return object;
 };
@@ -240,10 +236,7 @@ export const forOwnRight = <T extends object>(
 	iteratee: (value: unknown, key: string, object: T) => unknown,
 ): T => {
 	for (const key of Object.keys(object as Record<string, unknown>).reverse()) {
-		if (
-			iteratee((object as Record<string, unknown>)[key], key, object) === false
-		)
-			break;
+		if (iteratee((object as Record<string, unknown>)[key], key, object) === false) break;
 	}
 	return object;
 };
@@ -278,9 +271,7 @@ export const invoke = (
 	...args: unknown[]
 ): unknown => invokeAtPath(object, path, args);
 
-export const keysIn = (
-	object: Record<string, unknown> | null | undefined,
-): string[] => {
+export const keysIn = (object: Record<string, unknown> | null | undefined): string[] => {
 	if (!object) return [];
 	const result: string[] = [];
 	for (const key in object) result.push(key);
@@ -316,11 +307,7 @@ export const setWith = (
 	object: Record<PropertyKey, unknown>,
 	path: string | readonly (string | number | symbol)[],
 	value: unknown,
-	customizer?: (
-		nsValue: unknown,
-		key: string | number | symbol,
-		nsObject: unknown,
-	) => unknown,
+	customizer?: (nsValue: unknown, key: string | number | symbol, nsObject: unknown) => unknown,
 ): Record<PropertyKey, unknown> => {
 	if (customizer) {
 		const segments = toPathCore(path);
@@ -329,11 +316,7 @@ export const setWith = (
 			const key = segments[index];
 			if (!isObjectLike(current)) break;
 			if (!hasAtPath(current, [key])) {
-				(current as Record<PropertyKey, unknown>)[key] = customizer(
-					undefined,
-					key,
-					current,
-				);
+				(current as Record<PropertyKey, unknown>)[key] = customizer(undefined, key, current);
 			}
 			current = (current as Record<PropertyKey, unknown>)[key];
 		}
@@ -341,12 +324,9 @@ export const setWith = (
 	return setAtPath(object, path, value);
 };
 
-export const toPairs = (
-	object: Record<PropertyKey, unknown>,
-): Array<[string, unknown]> => Object.entries(object);
-export const toPairsIn = (
-	object: Record<string, unknown>,
-): Array<[string, unknown]> => {
+export const toPairs = (object: Record<PropertyKey, unknown>): Array<[string, unknown]> =>
+	Object.entries(object);
+export const toPairsIn = (object: Record<string, unknown>): Array<[string, unknown]> => {
 	const result: Array<[string, unknown]> = [];
 	for (const key in object) result.push([key, object[key]]);
 	return result;
@@ -354,20 +334,12 @@ export const toPairsIn = (
 
 export const transform = <T extends object, TResult extends object>(
 	object: T,
-	iteratee: (
-		result: TResult,
-		value: unknown,
-		key: string,
-		object: T,
-	) => unknown,
+	iteratee: (result: TResult, value: unknown, key: string, object: T) => unknown,
 	accumulator?: TResult,
 ): TResult => {
 	const result =
-		accumulator ??
-		(Array.isArray(object) ? ([] as unknown as TResult) : ({} as TResult));
-	for (const [key, value] of Object.entries(
-		object as Record<string, unknown>,
-	)) {
+		accumulator ?? (Array.isArray(object) ? ([] as unknown as TResult) : ({} as TResult));
+	for (const [key, value] of Object.entries(object as Record<string, unknown>)) {
 		if (iteratee(result, value, key, object) === false) break;
 	}
 	return result;
@@ -386,11 +358,7 @@ export const updateWith = (
 	object: Record<PropertyKey, unknown>,
 	path: string | readonly (string | number | symbol)[],
 	updater: (value: unknown) => unknown,
-	customizer?: (
-		nsValue: unknown,
-		key: string | number | symbol,
-		nsObject: unknown,
-	) => unknown,
+	customizer?: (nsValue: unknown, key: string | number | symbol, nsObject: unknown) => unknown,
 ): Record<PropertyKey, unknown> => {
 	if (customizer && !hasAtPath(object, path)) {
 		setWith(object, path, undefined, customizer);
@@ -398,7 +366,5 @@ export const updateWith = (
 	return update(object, path, updater);
 };
 
-export const valuesIn = (
-	object: Record<string, unknown> | null | undefined,
-): unknown[] =>
+export const valuesIn = (object: Record<string, unknown> | null | undefined): unknown[] =>
 	keysIn(object).map((key) => (object as Record<string, unknown>)[key]);

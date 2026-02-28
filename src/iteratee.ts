@@ -7,12 +7,15 @@ import { toIterateeCore } from "./internal/iteratee-core.js";
  *
  * @since +0.1.0
  * @category Util
- * @param {unknown} [func=identity] The value to convert to a callback.
+ * @param {any} [func=identity] The value to convert to a callback.
  * @returns {(value: unknown) => unknown} Returns the callback.
  * @example
  *
  * iteratee("a")({ a: 2 })
  * // => 2
+ *
+ * iteratee(null)(undefined)
+ * // => undefined
  */
 export function iteratee(func: unknown = (value: unknown) => value) {
 	if (func == null) {

@@ -1,9 +1,6 @@
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
-import {
-	BROWSER_ENTRY_FILE,
-	BROWSER_MIN_ENTRY_FILE,
-} from "./scripts/artifact-config.mjs";
+import { BROWSER_ENTRY_FILE, BROWSER_MIN_ENTRY_FILE } from "./scripts/build/artifact-config.mjs";
 
 const input = "src/index.ts";
 
@@ -16,7 +13,7 @@ export default [
 			name: "ZhiaiwanUtils",
 			sourcemap: false,
 		},
-		plugins: [typescript({ tsconfig: "./tsconfig.json", declaration: false })],
+		plugins: [typescript({ tsconfig: "./tsconfig.umd.json", declaration: false })],
 	},
 	{
 		input,
@@ -26,9 +23,6 @@ export default [
 			name: "ZhiaiwanUtils",
 			sourcemap: false,
 		},
-		plugins: [
-			typescript({ tsconfig: "./tsconfig.json", declaration: false }),
-			terser(),
-		],
+		plugins: [typescript({ tsconfig: "./tsconfig.umd.json", declaration: false }), terser()],
 	},
 ];

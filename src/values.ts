@@ -3,12 +3,15 @@
  *
  * @since +0.1.0
  * @category Object
- * @param {unknown} object The object to query.
+ * @param {object | null | undefined} object The object to query.
  * @returns {unknown[]} Returns the property values.
  * @example
  *
  * values({ a: 1, b: 2 })
  * // => [1, 2]
+ *
+ * values(null)
+ * // => []
  */
 export function values(object: unknown): unknown[] {
 	if (object == null) {

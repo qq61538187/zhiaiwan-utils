@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-import { GROUP_EXPORTS, GROUP_METHODS } from "../../scripts/method-groups.mjs";
+import { GROUP_EXPORTS, GROUP_METHODS } from "../../scripts/meta/method-groups.mjs";
 
 const CATEGORY_META: Record<string, { text: string; doc: string }> = {
 	array: { text: "Array", doc: "array" },
@@ -76,6 +76,10 @@ export default defineConfig({
 					text: "Guide",
 					items: [
 						{ text: "Getting Started", link: "/guide/getting-started" },
+						{
+							text: "Architecture Baseline",
+							link: "/guide/architecture-quality-baseline",
+						},
 						{ text: "Type Inference", link: "/guide/types" },
 						{
 							text: "Compatibility Matrix",
@@ -83,6 +87,18 @@ export default defineConfig({
 						},
 						{ text: "Gap Checklist", link: "/guide/gap-checklist" },
 						{ text: "Migration Notes", link: "/guide/migration" },
+						{
+							text: "Contributing Workflow",
+							link: "/guide/contributing-workflow",
+						},
+						{
+							text: "Release Checklist",
+							link: "/guide/release-checklist",
+						},
+						{
+							text: "Deprecation Policy",
+							link: "/guide/deprecation-policy",
+						},
 					],
 				},
 			],
@@ -106,9 +122,7 @@ export default defineConfig({
 				},
 			],
 		},
-		socialLinks: [
-			{ icon: "github", link: "https://github.com/zhiaiwan/utils" },
-		],
+		socialLinks: [{ icon: "github", link: "https://github.com/zhiaiwan/utils" }],
 		footer: {
 			message: "Released under the MIT License.",
 			copyright: "Copyright © 2026 ZhiAiWan",

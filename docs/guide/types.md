@@ -162,9 +162,9 @@ const memoized = memoize(
 
 ## Grouped Export Type Consistency
 
-### `array` and `func` keep the same method typing as root and subpath imports
+### `array` and `func` keep the same method typing on root imports
 
-Grouped exports and subpath imports expose equivalent method signatures.
+Grouped exports from the root entry expose consistent method signatures.
 
 #### Since
 
@@ -177,15 +177,13 @@ Grouped exports and subpath imports expose equivalent method signatures.
 
 #### Returns
 
-*(object)*: Returns grouped methods with consistent type behavior across import styles.
+*(object)*: Returns grouped methods with consistent type behavior on root imports.
 
 #### Example
 
 ```ts
 import { array } from '@zhiaiwan/utils'
-// or: import array from '@zhiaiwan/utils/array'
-import func from '@zhiaiwan/utils/func'
-// or: import { func } from '@zhiaiwan/utils'
+import { func } from '@zhiaiwan/utils'
 
 const chunks = array.chunk([1, 2, 3, 4], 2)
 const runOnce = func.once((value: number) => value + 1)

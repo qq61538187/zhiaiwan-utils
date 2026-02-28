@@ -1,24 +1,22 @@
 import { toIterateeCore } from "./internal/iteratee-core.js";
 
 /**
- * maxBy helper method.
- *
- * This method follows the project utility behavior contract.
+ * Returns the element that yields the largest iteratee score.
  *
  * @since +0.1.0
  * @category Math
- * @param {unknown} collection Parameter `collection`.
- * @param {unknown} iteratee Parameter `iteratee`.
- * @returns {T | undefined} Returns the result.
+ * @param {readonly T[]} collection The array to inspect.
+ * @param {any} iteratee The iteratee used to compute comparison scores.
+ * @returns {T | undefined} Returns the maximum-scoring element, or `undefined` for an empty collection.
  * @example
  *
  * maxBy([{ n: 1 }, { n: 3 }], "n")?.n
  * // => 3
+ *
+ * maxBy([] as Array<{ n: number }>, "n")
+ * // => undefined
  */
-export function maxBy<T>(
-	collection: readonly T[],
-	iteratee: unknown,
-): T | undefined {
+export function maxBy<T>(collection: readonly T[], iteratee: unknown): T | undefined {
 	if (collection.length === 0) {
 		return undefined;
 	}

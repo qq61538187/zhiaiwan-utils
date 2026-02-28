@@ -8,13 +8,16 @@ import type { PropertyPath } from "./types.js";
  *
  * @since +0.1.0
  * @category Object
- * @param {unknown} object The object to query.
+ * @param {object | null | undefined} object The object to query.
  * @param {PropertyPath} path The path to check.
  * @returns {boolean} Returns `true` if `path` exists, else `false`.
  * @example
  *
  * has({ a: { b: 2 } }, 'a.b')
  * // => true
+ *
+ * has(null, 'a.b')
+ * // => false
  */
 export function has(object: unknown, path: PropertyPath): boolean {
 	return hasAtPath(object, path);

@@ -1,9 +1,7 @@
 import { utilsGlobalKey } from "./internal/instance-core.js";
 
 const NO_CONFLICT_GLOBAL_KEY = utilsGlobalKey;
-const NO_CONFLICT_PREVIOUS = (globalThis as Record<PropertyKey, unknown>)[
-	NO_CONFLICT_GLOBAL_KEY
-];
+const NO_CONFLICT_PREVIOUS = (globalThis as Record<PropertyKey, unknown>)[NO_CONFLICT_GLOBAL_KEY];
 
 /**
  * Reverts the `_`-style global variable to its previous value.
@@ -12,12 +10,15 @@ const NO_CONFLICT_PREVIOUS = (globalThis as Record<PropertyKey, unknown>)[
  *
  * @since +0.1.0
  * @category Util
- * @param {unknown} [thisArg] Optional current utility object passed via `Function.call`.
+ * @param {any} [thisArg] Optional current utility object passed via `Function.call`.
  * @returns {unknown} Returns the current utility object.
  * @example
  *
  * const current = noConflict.call(globalThis.zhiaiwanUtils)
  * // => restores previous global and returns current object
+ *
+ * noConflict.call(undefined)
+ * // => returns current global value or undefined
  */
 export function noConflict(this: unknown): unknown {
 	const globalObject = globalThis as Record<PropertyKey, unknown>;

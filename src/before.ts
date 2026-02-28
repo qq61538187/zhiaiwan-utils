@@ -1,20 +1,22 @@
 import type { AnyFunction } from "./types.js";
 
 /**
- * before helper method.
- *
- * This method follows the project utility behavior contract.
+ * Creates a function that invokes `fn` while it is called fewer than `n` times.
  *
  * @since +0.1.0
  * @category Function
- * @param {unknown} n Parameter `n`.
- * @param {unknown} fn Parameter `fn`.
- * @returns {(...args: Parameters<T>)} Returns the result.
+ * @param {number} n The maximum call threshold.
+ * @param {T} fn The function to restrict.
+ * @returns {(...args: Parameters<T>) => ReturnType<T> | undefined} Returns a guarded invoker.
  * @example
  *
  * const run = before(2, (value: number) => value + 1)
  * run(3)
  * // => 4
+ *
+ * const blocked = before(0, (value: number) => value + 1)
+ * blocked(3)
+ * // => undefined
  */
 export function before<T extends AnyFunction>(
 	n: number,

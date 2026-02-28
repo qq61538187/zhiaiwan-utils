@@ -6,12 +6,15 @@ import type { PropertyPath } from "./types.js";
  *
  * @since +0.1.0
  * @category Util
- * @param {unknown} object The object to query.
+ * @param {object | null | undefined} object The object to query.
  * @returns {(path: PropertyPath) => unknown} Returns the new accessor function.
  * @example
  *
  * propertyOf({ a: { b: 2 } })("a.b")
  * // => 2
+ *
+ * propertyOf(null)("a.b")
+ * // => undefined
  */
 export function propertyOf(object: unknown) {
 	return (path: PropertyPath): unknown => getAtPath(object, path);

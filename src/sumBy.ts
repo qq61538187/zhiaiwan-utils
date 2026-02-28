@@ -1,19 +1,20 @@
 import { toIterateeCore } from "./internal/iteratee-core.js";
 
 /**
- * sumBy helper method.
- *
- * This method follows the project utility behavior contract.
+ * Sums iteratee results for each element in `collection`.
  *
  * @since +0.1.0
  * @category Math
- * @param {unknown} collection Parameter `collection`.
- * @param {unknown} iteratee Parameter `iteratee`.
- * @returns {number} Returns the result.
+ * @param {readonly T[]} collection The array to sum.
+ * @param {any} iteratee The iteratee used to map each element to a number.
+ * @returns {number} Returns the accumulated numeric sum.
  * @example
  *
  * sumBy([{ n: 2 }, { n: 4 }], "n")
  * // => 6
+ *
+ * sumBy([{ n: 2 }, { n: Number.NaN }], "n")
+ * // => 2
  */
 export function sumBy<T>(collection: readonly T[], iteratee: unknown): number {
 	const iterateeFn = toIterateeCore<T, unknown>(iteratee);

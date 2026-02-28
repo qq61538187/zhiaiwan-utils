@@ -1,3 +1,8 @@
+/**
+ * AUTO-GENERATED FILE. DO NOT EDIT MANUALLY.
+ * Run `pnpm run gen:index` to regenerate from scripts/meta/method-groups.mjs.
+ */
+
 export { add } from "./add.js";
 export { after } from "./after.js";
 export { ary } from "./ary.js";
@@ -669,7 +674,6 @@ export const object = Object.freeze({
 	methods,
 	methodsIn,
 });
-
 export const array = Object.freeze({
 	chunk,
 	compact,
@@ -738,7 +742,6 @@ export const array = Object.freeze({
 	zipObjectDeep,
 	zipWith,
 });
-
 export const func = Object.freeze({
 	after,
 	ary,
@@ -764,7 +767,6 @@ export const func = Object.freeze({
 	unary,
 	wrap,
 });
-
 export const util = Object.freeze({
 	attempt,
 	bindAll,
@@ -802,7 +804,6 @@ export const util = Object.freeze({
 	uniqueId,
 	createUtilsInstance,
 });
-
 export const collection = Object.freeze({
 	countBy,
 	every,
@@ -833,7 +834,6 @@ export const collection = Object.freeze({
 	each,
 	eachRight,
 });
-
 export const string = Object.freeze({
 	camelCase,
 	capitalize,
@@ -866,7 +866,6 @@ export const string = Object.freeze({
 	upperFirst,
 	words,
 });
-
 export const lang = Object.freeze({
 	castArray,
 	clone,
@@ -925,7 +924,6 @@ export const lang = Object.freeze({
 	toSafeInteger,
 	toString: toStringFn,
 });
-
 export const math = Object.freeze({
 	add,
 	ceil,
@@ -943,23 +941,19 @@ export const math = Object.freeze({
 	sum,
 	sumBy,
 });
-
 export const number = Object.freeze({
 	clamp,
 	inRange,
 	random,
 });
-
 export const date = Object.freeze({
 	now,
 });
-
 export const seq = Object.freeze({
 	chain,
 	tap,
 	thru,
 });
-
 export type { ThrottleOptions } from "./throttle.js";
 export type {
 	AnyFunction,

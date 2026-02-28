@@ -1,24 +1,22 @@
 import { toIterateeCore } from "./internal/iteratee-core.js";
 
 /**
- * minBy helper method.
- *
- * This method follows the project utility behavior contract.
+ * Returns the element that yields the smallest iteratee score.
  *
  * @since +0.1.0
  * @category Math
- * @param {unknown} collection Parameter `collection`.
- * @param {unknown} iteratee Parameter `iteratee`.
- * @returns {T | undefined} Returns the result.
+ * @param {readonly T[]} collection The array to inspect.
+ * @param {any} iteratee The iteratee used to compute comparison scores.
+ * @returns {T | undefined} Returns the minimum-scoring element, or `undefined` for an empty collection.
  * @example
  *
  * minBy([{ n: 2 }, { n: 4 }], "n")?.n
  * // => 2
+ *
+ * minBy([] as Array<{ n: number }>, "n")
+ * // => undefined
  */
-export function minBy<T>(
-	collection: readonly T[],
-	iteratee: unknown,
-): T | undefined {
+export function minBy<T>(collection: readonly T[], iteratee: unknown): T | undefined {
 	if (collection.length === 0) {
 		return undefined;
 	}

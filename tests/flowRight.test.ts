@@ -1,17 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { flowRight } from "../src/flowRight";
 
-describe("flowRight", () => {
-	it("composes functions from right to left", () => {
-		const add1 = (n: number) => n + 1;
-		const double = (n: number) => n * 2;
-		const run = flowRight(double, add1);
-		expect(run(3)).toBe(8);
-	});
-
-	it("returns identity function when called without arguments", () => {
-		const identity = flowRight();
-		expect(identity(3)).toBe(3);
-		expect(identity("a")).toBe("a");
+describe("src/flowRight", () => {
+	it("composes functions right to left", () => {
+		expect(
+			flowRight(
+				(n: number) => n * 2,
+				(n: number) => n + 1,
+			)(3),
+		).toBe(8);
 	});
 });

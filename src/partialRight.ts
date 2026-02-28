@@ -1,20 +1,22 @@
 import type { AnyFunction } from "./types.js";
 
 /**
- * partialRight helper method.
- *
- * This method follows the project utility behavior contract.
+ * Creates a function with appended partial arguments.
  *
  * @since +0.1.0
  * @category Function
- * @param {unknown} fn Parameter `fn`.
- * @param {unknown} partials Parameter `partials`.
- * @returns {(...args: unknown[])} Returns the result.
+ * @param {T} fn The function to partially apply.
+ * @param {...unknown[]} partials The arguments to append.
+ * @returns {(...args: unknown[]) => ReturnType<T>} Returns a right-partially applied wrapper.
  * @example
  *
  * const appendExclamation = partialRight((a: string, b: string) => a + b, "!")
  * appendExclamation("hi")
  * // => "hi!"
+ *
+ * const fallback = partialRight((value: string, suffix: string) => value + suffix, "-safe")
+ * fallback("")
+ * // => "-safe"
  */
 export function partialRight<T extends AnyFunction>(
 	fn: T,

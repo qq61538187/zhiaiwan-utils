@@ -6,7 +6,7 @@ import type { PropertyPath } from "./types.js";
  *
  * @since +0.1.0
  * @category Object
- * @param {unknown} object The object to modify.
+ * @param {object | null | undefined} object The object to modify.
  * @param {PropertyPath} path The path of the property to unset.
  * @returns {boolean} Returns `true` if the property is removed, else `false`.
  * @example
@@ -14,6 +14,9 @@ import type { PropertyPath } from "./types.js";
  * const target = { a: [{ b: { c: 7 } }] }
  * unset(target, 'a[0].b.c')
  * // => true
+ *
+ * unset({ safe: true }, "missing.path")
+ * // => false
  */
 export function unset(object: unknown, path: PropertyPath): boolean {
 	if (object == null || typeof object !== "object") {

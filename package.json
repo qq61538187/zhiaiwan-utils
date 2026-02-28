@@ -2,11 +2,21 @@
 	"name": "@zhiaiwan/utils",
 	"version": "0.1.0",
 	"description": "A pure function utility library for ZhiAiWan projects.",
+	"homepage": "https://github.com/zhiaiwan/utils",
+	"bugs": {
+		"url": "https://github.com/zhiaiwan/utils/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zhiaiwan/utils.git"
+	},
 	"license": "MIT",
 	"type": "module",
 	"files": [
 		"dist",
-		"README.md"
+		"README.md",
+		"README.CN.md",
+		"LICENSE"
 	],
 	"main": "./dist/cjs/zhiaiwanUtils.js",
 	"types": "./dist/types/zhiaiwanUtils.d.ts",
@@ -16,6 +26,72 @@
 			"import": "./dist/es/zhiaiwanUtils.js",
 			"require": "./dist/cjs/zhiaiwanUtils.js",
 			"default": "./dist/es/zhiaiwanUtils.js"
+		},
+		"./object": {
+			"types": "./dist/types/object.d.ts",
+			"import": "./dist/es/object.js",
+			"require": "./dist/cjs/object.js",
+			"default": "./dist/es/object.js"
+		},
+		"./array": {
+			"types": "./dist/types/array.d.ts",
+			"import": "./dist/es/array.js",
+			"require": "./dist/cjs/array.js",
+			"default": "./dist/es/array.js"
+		},
+		"./func": {
+			"types": "./dist/types/func.d.ts",
+			"import": "./dist/es/func.js",
+			"require": "./dist/cjs/func.js",
+			"default": "./dist/es/func.js"
+		},
+		"./util": {
+			"types": "./dist/types/util.d.ts",
+			"import": "./dist/es/util.js",
+			"require": "./dist/cjs/util.js",
+			"default": "./dist/es/util.js"
+		},
+		"./collection": {
+			"types": "./dist/types/collection.d.ts",
+			"import": "./dist/es/collection.js",
+			"require": "./dist/cjs/collection.js",
+			"default": "./dist/es/collection.js"
+		},
+		"./string": {
+			"types": "./dist/types/string.d.ts",
+			"import": "./dist/es/string.js",
+			"require": "./dist/cjs/string.js",
+			"default": "./dist/es/string.js"
+		},
+		"./lang": {
+			"types": "./dist/types/lang.d.ts",
+			"import": "./dist/es/lang.js",
+			"require": "./dist/cjs/lang.js",
+			"default": "./dist/es/lang.js"
+		},
+		"./math": {
+			"types": "./dist/types/math.d.ts",
+			"import": "./dist/es/math.js",
+			"require": "./dist/cjs/math.js",
+			"default": "./dist/es/math.js"
+		},
+		"./number": {
+			"types": "./dist/types/number.d.ts",
+			"import": "./dist/es/number.js",
+			"require": "./dist/cjs/number.js",
+			"default": "./dist/es/number.js"
+		},
+		"./date": {
+			"types": "./dist/types/date.d.ts",
+			"import": "./dist/es/date.js",
+			"require": "./dist/cjs/date.js",
+			"default": "./dist/es/date.js"
+		},
+		"./seq": {
+			"types": "./dist/types/seq.d.ts",
+			"import": "./dist/es/seq.js",
+			"require": "./dist/cjs/seq.js",
+			"default": "./dist/es/seq.js"
 		},
 		"./assign": {
 			"types": "./dist/types/assign.d.ts",
@@ -1864,72 +1940,6 @@
 			"import": "./dist/es/thru.js",
 			"require": "./dist/cjs/thru.js",
 			"default": "./dist/es/thru.js"
-		},
-		"./object": {
-			"types": "./dist/types/object.d.ts",
-			"import": "./dist/es/object.js",
-			"require": "./dist/cjs/object.js",
-			"default": "./dist/es/object.js"
-		},
-		"./array": {
-			"types": "./dist/types/array.d.ts",
-			"import": "./dist/es/array.js",
-			"require": "./dist/cjs/array.js",
-			"default": "./dist/es/array.js"
-		},
-		"./func": {
-			"types": "./dist/types/func.d.ts",
-			"import": "./dist/es/func.js",
-			"require": "./dist/cjs/func.js",
-			"default": "./dist/es/func.js"
-		},
-		"./util": {
-			"types": "./dist/types/util.d.ts",
-			"import": "./dist/es/util.js",
-			"require": "./dist/cjs/util.js",
-			"default": "./dist/es/util.js"
-		},
-		"./collection": {
-			"types": "./dist/types/collection.d.ts",
-			"import": "./dist/es/collection.js",
-			"require": "./dist/cjs/collection.js",
-			"default": "./dist/es/collection.js"
-		},
-		"./string": {
-			"types": "./dist/types/string.d.ts",
-			"import": "./dist/es/string.js",
-			"require": "./dist/cjs/string.js",
-			"default": "./dist/es/string.js"
-		},
-		"./lang": {
-			"types": "./dist/types/lang.d.ts",
-			"import": "./dist/es/lang.js",
-			"require": "./dist/cjs/lang.js",
-			"default": "./dist/es/lang.js"
-		},
-		"./math": {
-			"types": "./dist/types/math.d.ts",
-			"import": "./dist/es/math.js",
-			"require": "./dist/cjs/math.js",
-			"default": "./dist/es/math.js"
-		},
-		"./number": {
-			"types": "./dist/types/number.d.ts",
-			"import": "./dist/es/number.js",
-			"require": "./dist/cjs/number.js",
-			"default": "./dist/es/number.js"
-		},
-		"./date": {
-			"types": "./dist/types/date.d.ts",
-			"import": "./dist/es/date.js",
-			"require": "./dist/cjs/date.js",
-			"default": "./dist/es/date.js"
-		},
-		"./seq": {
-			"types": "./dist/types/seq.d.ts",
-			"import": "./dist/es/seq.js",
-			"require": "./dist/cjs/seq.js",
-			"default": "./dist/es/seq.js"
 		}
 	},
 	"engines": {
@@ -1937,32 +1947,56 @@
 	},
 	"scripts": {
 		"clean": "rimraf dist .tmp-types",
-		"sync:exports": "node scripts/sync-exports.mjs",
-		"verify:methods": "node scripts/verify-methods.mjs",
-		"verify:exports": "node scripts/verify-exports.mjs",
-		"verify:jsdoc": "node scripts/verify-jsdoc.mjs",
-		"verify:artifacts": "node scripts/verify-artifacts.mjs",
-		"build:cjs": "node scripts/build-runtime.mjs",
-		"build:es": "tsc -p tsconfig.esm.json && node scripts/build-esm.mjs",
-		"build:umd": "node scripts/build-browser.mjs",
-		"build:types": "tsc -p tsconfig.types.json && node scripts/build-types.mjs",
-		"build": "pnpm run clean && pnpm run sync:exports && pnpm run verify:methods && pnpm run verify:exports && pnpm run build:es && pnpm run build:cjs && pnpm run build:umd && pnpm run build:types",
+		"gen:index": "node scripts/index/generate-index.mjs",
+		"check:index": "node scripts/index/generate-index.mjs --check",
+		"sync:exports": "node scripts/exports/sync-exports.mjs",
+		"check:exports": "node scripts/exports/check-exports.mjs",
+		"verify:methods": "node scripts/verify/verify-methods.mjs",
+		"verify:exports": "node scripts/exports/verify-exports.mjs",
+		"verify:jsdoc": "node scripts/verify/verify-jsdoc.mjs",
+		"sync:method-tests": "node scripts/verify/sync-method-tests.mjs",
+		"clean:method-tests": "node scripts/verify/clean-mirror-tests.mjs",
+		"verify:method-tests": "node scripts/verify/verify-method-tests.mjs",
+		"sync:examples": "node scripts/verify/sync-mirror-examples.mjs",
+		"sync:examples:docs": "node scripts/verify/sync-examples-from-docs.mjs",
+		"clean:examples": "node scripts/verify/clean-mirror-examples.mjs",
+		"verify:examples": "node scripts/verify/verify-mirror-examples.mjs",
+		"verify:artifacts": "node scripts/verify/verify-artifacts.mjs",
+		"build:cjs": "node scripts/build/build-runtime.mjs",
+		"build:es": "tsc -p tsconfig.esm.json && node scripts/build/build-esm.mjs",
+		"build:umd": "node scripts/build/build-browser.mjs",
+		"build:types": "tsc -p tsconfig.types.json && node scripts/build/build-types.mjs",
+		"build": "pnpm run clean && pnpm run check:exports && pnpm run verify:methods && pnpm run verify:exports && pnpm run build:es && pnpm run build:cjs && pnpm run build:umd && pnpm run build:types",
 		"typecheck": "tsc --noEmit",
 		"verify:types": "tsc -p tsconfig.type-tests.json --noEmit",
-		"test:node:smoke": "node scripts/node-smoke.mjs",
+		"test:node:smoke": "node scripts/dev/node-smoke.mjs",
 		"test": "vitest",
+		"test:src": "vitest run --exclude \"tests/**/*.dist.test.ts\"",
+		"test:internal": "vitest run tests/internal/kernel.test.ts",
+		"test:coverage:src": "vitest run --coverage --exclude \"tests/**/*.dist.test.ts\"",
+		"test:coverage:dist": "pnpm run build && pnpm run test:dist",
+		"test:coverage": "pnpm run test:coverage:src",
+		"test:dist": "vitest run tests/full-entry.dist.test.ts tests/grouping.dist.test.ts",
 		"test:run": "vitest run",
 		"lint": "biome lint ./src ./tests ./scripts",
 		"fix": "biome check --write ./src ./tests ./scripts",
 		"docs:dev": "vitepress dev docs",
 		"docs:build": "vitepress build docs",
 		"docs:preview": "vitepress preview docs",
+		"bench": "pnpm run build && node scripts/bench/run-bench.mjs",
+		"security:audit": "pnpm audit --prod --audit-level high",
+		"validate:fast": "pnpm run check:exports && pnpm run check:index && pnpm run lint && pnpm run typecheck && pnpm run verify:types && pnpm run verify:method-tests && pnpm run verify:examples && pnpm run test:src",
+		"validate:full": "pnpm run validate:fast && pnpm run build && pnpm run test:dist && pnpm run verify:artifacts && pnpm run test:node:smoke",
+		"validate:core": "pnpm run validate:full",
+		"validate:docs": "pnpm run docs:build",
+		"validate:publish": "pnpm run validate:core && pnpm run verify:jsdoc && pnpm run validate:docs && npm pack --dry-run",
+		"examples": "pnpm run verify:examples",
 		"changeset:version": "changeset version",
 		"changeset:publish": "changeset publish",
-		"commitlint": "node scripts/commitlint.mjs",
+		"commitlint": "node scripts/dev/commitlint.mjs",
 		"prepare": "husky",
 		"prepack": "pnpm run build && pnpm run verify:artifacts",
-		"prepublishOnly": "pnpm run prepack && pnpm run verify:types && pnpm run verify:jsdoc && pnpm run test:run && pnpm run test:node:smoke"
+		"prepublishOnly": "pnpm run verify:types && pnpm run verify:jsdoc && pnpm run test:run && pnpm run test:node:smoke"
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx,json,mjs,md}": [
@@ -1977,6 +2011,7 @@
 		"@rollup/plugin-terser": "^0.4.4",
 		"@rollup/plugin-typescript": "^12.1.2",
 		"@types/node": "^25.3.1",
+		"@vitest/coverage-v8": "^4.0.18",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.7",
 		"rimraf": "^6.1.1",

@@ -15,8 +15,10 @@
 
 ## Verification Checklist
 
-- Run `pnpm run test:run`
-- Run `pnpm run build`
-- Run `pnpm run verify:types`
-- Run `pnpm run docs:build`
+- Run `pnpm run validate:core`
+- Run `pnpm run validate:docs`
+
+## Related Policy
+
+- Deprecation lifecycle and compatibility guarantees: `docs/guide/deprecation-policy.md`
 

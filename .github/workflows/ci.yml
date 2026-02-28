@@ -6,7 +6,24 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/dependency-review-action@v4
+
   ci:
     runs-on: ubuntu-latest
 
@@ -28,20 +45,42 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Lint
-        run: pnpm run lint
+      - name: Detect Internal Kernel Changes (Node 22)
+        if: matrix.node-version == 22
+        id: changed-internal
+        uses: tj-actions/changed-files@v46
+        with:
+          files: |
+            src/internal/**
 
-      - name: Type Check
-        run: pnpm run typecheck
+      - name: Validate Fast Pipeline
+        run: pnpm run validate:fast
 
-      - name: Test
-        run: pnpm run test:run
+      - name: Validate Full Pipeline (Node 22)
+        if: matrix.node-version == 22
+        run: pnpm run validate:full
 
-      - name: Build
-        run: pnpm run build
+      - name: Test Internal Kernels (if touched, Node 22)
+        if: matrix.node-version == 22 && steps.changed-internal.outputs.any_changed == 'true'
+        run: pnpm run test:internal
 
-      - name: Verify Types
-        run: pnpm run verify:types
+      - name: Test Coverage Source (Node 22)
+        if: matrix.node-version == 22
+        run: pnpm run test:coverage:src
 
-      - name: Node Smoke Test
-        run: pnpm run test:node:smoke
+      - name: Verify JSDoc (Node 22)
+        if: matrix.node-version == 22
+        run: pnpm run verify:jsdoc
+
+      - name: Build Docs (Node 22)
+        if: matrix.node-version == 22
+        run: pnpm run validate:docs
+
+      - name: Security Audit (Node 22)
+        if: matrix.node-version == 22
+        continue-on-error: true
+        run: pnpm run security:audit
+
+      - name: Pack Dry Run (Node 22)
+        if: matrix.node-version == 22
+        run: npm pack --dry-run

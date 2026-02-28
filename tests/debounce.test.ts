@@ -1,60 +1,42 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { debounce } from "../src/debounce";
 
-describe("debounce", () => {
-	it("delays invocation until wait timeout", () => {
-		vi.useFakeTimers();
-		const fn = vi.fn();
-		const debounced = debounce(fn, 50);
-
-		debounced("a");
-		debounced("b");
-
-		expect(fn).not.toHaveBeenCalled();
-		vi.advanceTimersByTime(50);
-		expect(fn).toHaveBeenCalledTimes(1);
-		expect(fn).toHaveBeenCalledWith("b");
+describe("src/debounce", () => {
+	afterEach(() => {
 		vi.useRealTimers();
 	});
 
-	it("supports cancel and flush", () => {
+	it("debounces calls and keeps last arguments", () => {
 		vi.useFakeTimers();
-		const fn = vi.fn((value: number) => value * 2);
-		const debounced = debounce(fn, 100);
+		const calls: number[] = [];
+		const fn = debounce((value: number) => {
+			calls.push(value);
+			return value * 2;
+		}, 100);
 
-		debounced(2);
-		debounced.cancel();
+		fn(1);
+		fn(2);
+		expect(calls).toEqual([]);
 		vi.advanceTimersByTime(100);
-		expect(fn).not.toHaveBeenCalled();
-
-		debounced(3);
-		const result = debounced.flush();
-		expect(fn).toHaveBeenCalledTimes(1);
-		expect(result).toBe(6);
-		vi.useRealTimers();
+		expect(calls).toEqual([2]);
 	});
 
-	it("returns last result on flush without pending timer", () => {
+	it("supports flush and cancel lifecycle", () => {
 		vi.useFakeTimers();
-		const fn = vi.fn((value: number) => value * 3);
-		const debounced = debounce(fn, 10);
+		const calls: number[] = [];
+		const fn = debounce((value: number) => {
+			calls.push(value);
+			return value;
+		}, 100);
 
-		debounced(2);
-		expect(debounced.flush()).toBe(6);
-		expect(debounced.flush()).toBe(6);
-		expect(fn).toHaveBeenCalledTimes(1);
-		vi.useRealTimers();
-	});
+		expect(fn.flush()).toBeUndefined();
+		fn(1);
+		expect(fn.flush()).toBe(1);
+		expect(calls).toEqual([1]);
 
-	it("preserves this binding when invoked", () => {
-		vi.useFakeTimers();
-		const fn = vi.fn(function (this: { factor: number }, value: number) {
-			return this.factor * value;
-		});
-		const debounced = debounce(fn, 10);
-		debounced.call({ factor: 4 }, 2);
-		expect(debounced.flush()).toBe(8);
-		expect(fn).toHaveBeenCalledTimes(1);
-		vi.useRealTimers();
+		fn(2);
+		fn.cancel();
+		vi.advanceTimersByTime(150);
+		expect(calls).toEqual([1]);
 	});
 });

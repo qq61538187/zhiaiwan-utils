@@ -1,18 +1,25 @@
 import { assignInWith } from "./internal/object-native.js";
 
 /**
- * Exposes `assignInWith` as a public API method.
- *
- * This wrapper forwards all received arguments to the internal implementation.
+ * Assigns own and inherited enumerable string-keyed properties with a customizer.
  *
  * @since +0.1.0
  * @category Object
- * @param {...unknown} args The arguments forwarded to `assignInWith`.
- * @returns {unknown} Returns the forwarded result.
+ * @param {object} object The destination object.
+ * @param {object} source The source object.
+ * @param {Function} customizer The value customizer.
+ * @returns {object} Returns the mutated destination object.
  * @example
  *
- * assignInWith()
- * // => undefined
+ * const source = Object.create({ inherited: 1 })
+ * source.own = 2
+ * assignInWith({}, source, (_objValue, srcValue) =>
+ *   typeof srcValue === "number" ? srcValue * 2 : srcValue
+ * )
+ * // => { inherited: 2, own: 4 }
+ *
+ * assignInWith({ safe: true }, { __proto__: { polluted: "x" } }, () => undefined)
+ * // => { safe: true }
  */
 export { assignInWith };
 

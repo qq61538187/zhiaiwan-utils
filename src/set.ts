@@ -10,13 +10,16 @@ import type { PropertyPath } from "./types.js";
  * @category Object
  * @param {Record<PropertyKey, unknown>} object The object to modify.
  * @param {PropertyPath} path The path of the property to set.
- * @param {unknown} value The value to set.
+ * @param {any} value The value to set.
  * @returns {Record<PropertyKey, unknown>} Returns `object`.
  * @example
  *
  * const target = {}
  * set(target, 'a[0].b', 2)
  * // => { a: [{ b: 2 }] }
+ *
+ * set({ safe: true }, "__proto__.polluted", "x")
+ * // => { safe: true }
  */
 export function set<T extends Record<PropertyKey, unknown>>(
 	object: T,

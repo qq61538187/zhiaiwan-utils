@@ -36,7 +36,7 @@ The function method group.
 #### Example
 
 ```ts
-import func from '@zhiaiwan/utils/func'
+import { func } from '@zhiaiwan/utils'
 // => undefined
 ```
 

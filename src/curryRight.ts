@@ -8,14 +8,18 @@ import type { AnyFunction } from "./types.js";
  *
  * @since +0.1.0
  * @category Function
- * @param {unknown} fn The function to curry from right.
- * @param {unknown} arity The arity of `fn`.
+ * @param {T} fn The function to curry from right.
+ * @param {number} arity The arity of `fn`.
  * @returns {T} Returns the new curried function.
  * @example
  *
  * const r = curryRight((a: string, b: string) => a + b)
  * r('b')('a')
  * // => 'ab'
+ *
+ * const withFallback = curryRight((a = "safe", b = "safe") => `${a}:${b}`)
+ * withFallback(undefined)()
+ * // => "safe:safe"
  */
 export function curryRight<T extends AnyFunction>(fn: T, arity = fn.length): T {
 	const curried = (...args: unknown[]): unknown => {

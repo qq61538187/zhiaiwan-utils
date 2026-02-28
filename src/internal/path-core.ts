@@ -1,4 +1,5 @@
 import type { PathSegment, PropertyPath } from "../types.js";
+import { isUnsafePropertyKey } from "./security-core.js";
 
 const PATH_REGEX = /[^.[\]]+|\[(?:(-?\d+)|(["'])(.*?)\2)\]/g;
 
@@ -7,19 +8,14 @@ const toPathSegment = (value: string): PathSegment => {
 		return "";
 	}
 	const numeric = Number(value);
-	return Number.isInteger(numeric) && String(numeric) === value
-		? numeric
-		: value;
+	return Number.isInteger(numeric) && String(numeric) === value ? numeric : value;
 };
 
 const isIndex = (segment: PathSegment): boolean =>
-	typeof segment === "number" ||
-	(typeof segment === "string" && /^\d+$/.test(segment));
+	typeof segment === "number" || (typeof segment === "string" && /^\d+$/.test(segment));
 
 const isUnsafeSegment = (segment: PathSegment): boolean =>
-	segment === "__proto__" ||
-	segment === "constructor" ||
-	segment === "prototype";
+	isUnsafePropertyKey(segment as PropertyKey);
 
 export const toPathCore = (path: PropertyPath): PathSegment[] => {
 	if (Array.isArray(path)) {
@@ -28,12 +24,7 @@ export const toPathCore = (path: PropertyPath): PathSegment[] => {
 	const result: PathSegment[] = [];
 	String(path).replace(
 		PATH_REGEX,
-		(
-			match: string,
-			numberMatch: string,
-			quote: string,
-			quotedValue: string,
-		) => {
+		(match: string, numberMatch: string, quote: string, quotedValue: string) => {
 			if (quote) {
 				result.push(quotedValue);
 			} else if (numberMatch !== undefined) {
@@ -61,10 +52,7 @@ export const getAtPath = <TDefault = undefined>(
 		if (current == null) {
 			return defaultValue as TDefault;
 		}
-		current = current[segment as PropertyKey] as
-			| Record<PropertyKey, unknown>
-			| null
-			| undefined;
+		current = current[segment as PropertyKey] as Record<PropertyKey, unknown> | null | undefined;
 	}
 	return current === undefined ? (defaultValue as TDefault) : current;
 };
@@ -82,10 +70,7 @@ export const hasAtPath = (object: unknown, path: PropertyPath): boolean => {
 		if (current == null || !Object.hasOwn(current, segment as PropertyKey)) {
 			return false;
 		}
-		current = current[segment as PropertyKey] as
-			| Record<PropertyKey, unknown>
-			| null
-			| undefined;
+		current = current[segment as PropertyKey] as Record<PropertyKey, unknown> | null | undefined;
 	}
 	return true;
 };
@@ -122,10 +107,7 @@ export const setAtPath = <T extends Record<PropertyKey, unknown>>(
 	return object;
 };
 
-export const unsetAtPath = (
-	object: Record<PropertyKey, unknown>,
-	path: PropertyPath,
-): void => {
+export const unsetAtPath = (object: Record<PropertyKey, unknown>, path: PropertyPath): void => {
 	const segments = toPathCore(path);
 	if (segments.length === 0) {
 		return;
@@ -175,10 +157,7 @@ export const invokeAtPath = (
 			if (typeof next !== "function") {
 				return undefined;
 			}
-			return (next as (...params: readonly unknown[]) => unknown).apply(
-				current,
-				[...args],
-			);
+			return (next as (...params: readonly unknown[]) => unknown).apply(current, [...args]);
 		}
 		current = next as Record<PropertyKey, unknown> | null | undefined;
 	}

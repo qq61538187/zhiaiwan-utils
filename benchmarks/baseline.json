@@ -1,0 +1,30 @@
+{
+	"generatedAt": "2026-02-27T10:29:51.485Z",
+	"nodeVersion": "v22.15.0",
+	"results": [
+		{
+			"name": "merge_shallow_objects",
+			"iterations": 2000,
+			"totalMs": 1.161,
+			"perIterationUs": 0.581
+		},
+		{
+			"name": "set_get_nested_path",
+			"iterations": 2000,
+			"totalMs": 2.869,
+			"perIterationUs": 1.434
+		},
+		{
+			"name": "toPath_parse",
+			"iterations": 5000,
+			"totalMs": 2.786,
+			"perIterationUs": 0.557
+		},
+		{
+			"name": "isEqual_nested",
+			"iterations": 2000,
+			"totalMs": 0.946,
+			"perIterationUs": 0.473
+		}
+	]
+}

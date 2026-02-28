@@ -1,20 +1,22 @@
 import type { AnyFunction } from "./types.js";
 
 /**
- * rest helper method.
- *
- * This method follows the project utility behavior contract.
+ * Creates a function that packs arguments from `start` into a single rest array.
  *
  * @since +0.1.0
  * @category Function
- * @param {unknown} fn Parameter `fn`.
- * @param {unknown} start Parameter `start`.
- * @returns {(...args: unknown[])} Returns the result.
+ * @param {T} fn The target function.
+ * @param {number} start The rest-collection start index.
+ * @returns {(...args: unknown[]) => ReturnType<T>} Returns a rest-args wrapper.
  * @example
  *
  * const fn = rest((prefix: string, items: string[]) => prefix + items.join(","), 1)
  * fn("x", "a", "b")
  * // => "xa,b"
+ *
+ * const emptyTail = rest((prefix: string, items: string[]) => `${prefix}:${items.length}`, 1)
+ * emptyTail("safe")
+ * // => "safe:0"
  */
 export function rest<T extends AnyFunction>(
 	fn: T,

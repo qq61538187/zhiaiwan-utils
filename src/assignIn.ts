@@ -1,18 +1,23 @@
 import { assignIn } from "./internal/object-native.js";
 
 /**
- * Exposes `assignIn` as a public API method.
- *
- * This wrapper forwards all received arguments to the internal implementation.
+ * Assigns own and inherited enumerable string-keyed properties from source objects.
  *
  * @since +0.1.0
  * @category Object
- * @param {...unknown} args The arguments forwarded to `assignIn`.
- * @returns {unknown} Returns the forwarded result.
+ * @param {object} object The destination object.
+ * @param {...unknown[]} sources The source objects.
+ * @returns {object} Returns the mutated destination object.
  * @example
  *
- * assignIn()
- * // => undefined
+ * const target = { a: 1 }
+ * const source = Object.create({ inherited: 2 })
+ * source.b = 3
+ * assignIn(target, source)
+ * // => { a: 1, b: 3, inherited: 2 }
+ *
+ * assignIn({ safe: true }, { __proto__: { polluted: "x" } })
+ * // => { safe: true }
  */
 export { assignIn };
 

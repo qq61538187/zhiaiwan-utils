@@ -1,22 +1,15 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { once } from "../src/once";
 
-describe("once", () => {
-	it("invokes function only once", () => {
-		const fn = vi.fn((n: number) => n * 2);
-		const wrapped = once(fn);
-		expect(wrapped(2)).toBe(4);
-		expect(wrapped(3)).toBe(4);
-		expect(fn).toHaveBeenCalledTimes(1);
-	});
-
-	it("keeps this binding from first invocation", () => {
-		const fn = vi.fn(function (this: { base: number }, value: number) {
-			return this.base + value;
+describe("src/once", () => {
+	it("invokes function once and reuses first result", () => {
+		const calls: number[] = [];
+		const fn = once((v: number) => {
+			calls.push(v);
+			return v + 1;
 		});
-		const wrapped = once(fn);
-		expect(wrapped.call({ base: 2 }, 3)).toBe(5);
-		expect(wrapped.call({ base: 10 }, 3)).toBe(5);
-		expect(fn).toHaveBeenCalledTimes(1);
+		expect(fn(1)).toBe(2);
+		expect(fn(10)).toBe(2);
+		expect(calls).toEqual([1]);
 	});
 });

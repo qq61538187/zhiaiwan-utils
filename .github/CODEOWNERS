@@ -1,0 +1,11 @@
+# Default owners for all files in this repository
+* @zhiaiwan
+
+# CI/workflow changes require maintainer review
+.github/workflows/* @zhiaiwan
+
+# Package contract and release metadata
+package.json @zhiaiwan
+.changeset/* @zhiaiwan
+scripts/* @zhiaiwan
+docs/guide/* @zhiaiwan

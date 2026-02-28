@@ -7,7 +7,7 @@
 It is designed for:
 
 - Array, object, and function helpers
-- Category-based imports and per-method imports
+- Category-based imports and root-entry named imports
 - Strong type inference for daily utility workflows
 
 ## Installation
@@ -28,12 +28,11 @@ yarn add @zhiaiwan/utils
 // Full entry (recommended for discoverability)
 import { add, chunk, flowRight } from '@zhiaiwan/utils'
 
-// Per-method import
-import addDefault from '@zhiaiwan/utils/add'
-
 // Group import
-import func from '@zhiaiwan/utils/func'
-// or: import { func } from '@zhiaiwan/utils'
+import { func } from '@zhiaiwan/utils'
+
+// CommonJS-only subpath import
+const addFromSubpath = require('@zhiaiwan/utils/add')
 ```
 
 ## Why Use This Library?
@@ -69,10 +68,7 @@ Build artifact layout:
 
 ```ts
 import { array } from '@zhiaiwan/utils'
-// or: import array from '@zhiaiwan/utils/array'
-
-import func from '@zhiaiwan/utils/func'
-// or: import { func } from '@zhiaiwan/utils'
+import { func } from '@zhiaiwan/utils'
 
 const grouped = array.chunk([1, 2, 3, 4], 2)
 const runOnce = func.once((value: number) => value + 1)
@@ -81,20 +77,13 @@ const runOnce = func.once((value: number) => value + 1)
 ## Local Validation
 
 ```bash
-pnpm run lint
-pnpm run typecheck
-pnpm run verify:types
-pnpm run test:run
-pnpm run build
-pnpm run verify:artifacts
-pnpm run test:node:smoke
+pnpm run validate:core
 ```
 
 ## Pre-publish Check
 
 ```bash
-pnpm run docs:build
-pnpm pack --dry-run
+pnpm run validate:publish
 ```
 
 ## Compatibility Policy

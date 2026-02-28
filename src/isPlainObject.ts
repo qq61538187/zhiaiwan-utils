@@ -5,16 +5,17 @@
  *
  * @since +0.1.0
  * @category Lang
- * @param {unknown} value The value to check.
+ * @param {any} value The value to check.
  * @returns {value is Record<PropertyKey, unknown>} Returns `true` if `value` is a plain object.
  * @example
  *
  * isPlainObject({ a: 1 })
  * // => true
+ *
+ * isPlainObject(null)
+ * // => false
  */
-export function isPlainObject(
-	value: unknown,
-): value is Record<PropertyKey, unknown> {
+export function isPlainObject(value: unknown): value is Record<PropertyKey, unknown> {
 	if (Object.prototype.toString.call(value) !== "[object Object]") {
 		return false;
 	}

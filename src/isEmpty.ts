@@ -1,6 +1,4 @@
-const isPlainObjectValue = (
-	value: unknown,
-): value is Record<PropertyKey, unknown> => {
+const isPlainObjectValue = (value: unknown): value is Record<PropertyKey, unknown> => {
 	if (Object.prototype.toString.call(value) !== "[object Object]") {
 		return false;
 	}
@@ -15,11 +13,14 @@ const isPlainObjectValue = (
  *
  * @since +0.1.0
  * @category Lang
- * @param {unknown} value The value to check.
+ * @param {unknown | null | undefined} value The value to check.
  * @returns {boolean} Returns `true` if `value` is empty.
  * @example
  *
  * isEmpty([])
+ * // => true
+ *
+ * isEmpty(null)
  * // => true
  */
 export function isEmpty(value: unknown): boolean {

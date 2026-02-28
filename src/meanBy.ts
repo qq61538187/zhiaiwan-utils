@@ -1,19 +1,20 @@
 import { sumBy } from "./sumBy.js";
 
 /**
- * meanBy helper method.
- *
- * This method follows the project utility behavior contract.
+ * Computes the arithmetic mean of iteratee results for `collection`.
  *
  * @since +0.1.0
  * @category Math
- * @param {unknown} collection Parameter `collection`.
- * @param {unknown} iteratee Parameter `iteratee`.
- * @returns {number} Returns the result.
+ * @param {readonly T[]} collection The array to average.
+ * @param {any} iteratee The iteratee used to map each element to a number.
+ * @returns {number} Returns the mean value, or `NaN` when the collection is empty.
  * @example
  *
  * meanBy([{ n: 2 }, { n: 4 }], "n")
  * // => 3
+ *
+ * meanBy([] as Array<{ n: number }>, "n")
+ * // => NaN
  */
 export function meanBy<T>(collection: readonly T[], iteratee: unknown): number {
 	if (collection.length === 0) {
