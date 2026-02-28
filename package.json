@@ -2000,7 +2000,7 @@
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx,json,mjs,md}": [
-			"biome check --write --no-errors-on-unmatched"
+			"node scripts/dev/lint-staged-biome.mjs"
 		]
 	},
 	"devDependencies": {
